@@ -2,1316 +2,893 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gestão Salão Pro — Planilha Completa para Salão de Beleza</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Pousada Fonte das Flores</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 <style>
-:root {
-  --rosa:       #9C2D5A;
-  --rosa-deep:  #6B1A3A;
-  --rosa-lt:    #F5E6EC;
-  --rosa-mid:   #C0456E;
-  --gold:       #C9A84C;
-  --gold-lt:    #F9F0DC;
-  --off-white:  #FDF8F5;
-  --cream:      #F5EDE6;
-  --ink:        #1A1018;
-  --ink-mid:    #3D2B36;
-  --ink-lt:     #7A6070;
-  --verde:      #1A6B40;
-  --verde-lt:   #E4F4EC;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--off-white);
-  color: var(--ink);
-  overflow-x: hidden;
-}
-
-/* ══════════════════════ NAV ══════════════════════ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 48px;
-  background: rgba(253,248,245,.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(156,45,90,.12);
-}
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; font-weight: 700;
-  color: var(--rosa);
-  letter-spacing: .02em;
-}
-.nav-logo span { color: var(--rosa); }
-.nav-cta {
-  background: var(--rosa); color: #fff;
-  padding: 10px 28px; border-radius: 50px;
-  font-size: .85rem; font-weight: 600;
-  text-decoration: none; letter-spacing: .04em;
-  transition: all .3s ease;
-  box-shadow: 0 4px 20px rgba(156,45,90,.3);
-}
-.nav-cta:hover { background: var(--rosa-deep); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(156,45,90,.4); }
-
-/* ══════════════════════ HERO ══════════════════════ */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 0;
-  padding-top: 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Decorative scissors */
-
-
-.hero-left {
-  padding: 80px 64px 80px 80px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold-lt); border: 1px solid var(--gold);
-  padding: 6px 16px; border-radius: 50px;
-  font-size: .75rem; font-weight: 600; color: #8B6914;
-  letter-spacing: .08em; text-transform: uppercase;
-  margin-bottom: 28px;
-  animation: fadeUp .6s ease both;
-}
-
-
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 24px;
-  animation: fadeUp .6s .1s ease both;
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--rosa);
-  display: block;
-}
-
-.hero-sub {
-  font-size: 1.1rem;
-  color: var(--ink-mid);
-  line-height: 1.7;
-  max-width: 480px;
-  margin-bottom: 40px;
-  font-weight: 300;
-  animation: fadeUp .6s .2s ease both;
-}
-
-.hero-price-block {
-  display: flex; align-items: flex-end; gap: 16px;
-  margin-bottom: 36px;
-  animation: fadeUp .6s .3s ease both;
-}
-.price-from { font-size: .85rem; color: var(--ink-lt); text-decoration: line-through; }
-.price-main {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2rem; font-weight: 900;
-  color: var(--rosa); line-height: 1;
-}
-.price-main sup { font-size: 1.4rem; vertical-align: super; }
-.price-note { font-size: .82rem; color: var(--ink-lt); line-height: 1.4; padding-bottom: 8px; }
-
-.hero-actions {
-  display: flex; flex-direction: column; gap: 12px; max-width: 380px;
-  animation: fadeUp .6s .4s ease both;
-}
-.btn-primary {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-deep) 100%);
-  color: #fff; padding: 18px 36px; border-radius: 14px;
-  font-size: 1rem; font-weight: 700; text-decoration: none;
-  letter-spacing: .02em;
-  box-shadow: 0 8px 32px rgba(156,45,90,.35), 0 2px 8px rgba(156,45,90,.2);
-  transition: all .3s ease;
-  position: relative; overflow: hidden;
-}
-.btn-primary::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%);
-  opacity: 0; transition: opacity .3s;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(156,45,90,.45); }
-.btn-primary:hover::before { opacity: 1; }
-
-.btn-secondary {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  color: var(--ink-mid); font-size: .9rem; font-weight: 500;
-  text-decoration: none; padding: 12px;
-  transition: color .2s;
-}
-.btn-secondary:hover { color: var(--rosa); }
-
-.hero-guarantee {
-  display: flex; align-items: center; gap: 8px;
-  font-size: .78rem; color: var(--ink-lt);
-  margin-top: 8px;
-}
-.hero-guarantee span { color: var(--verde); font-weight: 600; }
-
-/* ─── Hero Right: Mockup ─── */
-.hero-right {
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  padding: 80px 60px 80px 20px;
-  animation: fadeLeft .8s .3s ease both;
-}
-
-.mockup-wrap {
-  position: relative;
-  width: 100%; max-width: 560px;
-}
-
-.mockup-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 32px 80px rgba(26,16,24,.14), 0 4px 20px rgba(26,16,24,.08);
-  position: relative;
-  transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
-  transition: transform .4s ease;
-}
-.mockup-card:hover { transform: perspective(1000px) rotateY(-1deg) rotateX(0deg); }
-
-.mockup-bar {
-  background: var(--rosa);
-  padding: 14px 20px;
-  display: flex; align-items: center; gap: 8px;
-}
-.mockup-dots { display: flex; gap: 6px; }
-.mockup-dots span {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255,255,255,.4);
-}
-.mockup-dots span:first-child { background: #ff6b6b; }
-.mockup-dots span:nth-child(2) { background: #ffd93d; }
-.mockup-dots span:nth-child(3) { background: #6bcb77; }
-.mockup-title-bar {
-  font-family: 'DM Mono', monospace;
-  font-size: .72rem; color: rgba(255,255,255,.7);
-  margin-left: 8px; letter-spacing: .06em;
-}
-
-.mockup-body { padding: 20px; }
-
-.mock-header {
-  background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-deep) 100%);
-  border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.mock-header-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; font-weight: 700; color: #fff;
-}
-.mock-header-sub { font-size: .7rem; color: rgba(255,255,255,.7); margin-top: 2px; }
-
-.mock-kpis {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
-  margin-bottom: 16px;
-}
-.mock-kpi {
-  border-radius: 10px; padding: 12px 14px;
-  position: relative; overflow: hidden;
-}
-.mock-kpi-label { font-size: .65rem; font-weight: 600; opacity: .7; text-transform: uppercase; letter-spacing: .06em; }
-.mock-kpi-value { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-top: 4px; }
-.kpi-green  { background: var(--verde-lt); color: var(--verde); }
-.kpi-red    { background: #FDECEA; color: #B03020; }
-.kpi-rosa   { background: var(--rosa-lt); color: var(--rosa); }
-.kpi-gray   { background: #F4F4F4; color: #2C2C2C; }
-
-.mock-table { width: 100%; border-collapse: collapse; font-size: .68rem; }
-.mock-table th {
-  background: var(--rosa); color: #fff;
-  padding: 7px 10px; text-align: left;
-  font-size: .62rem; font-weight: 600; letter-spacing: .05em;
-}
-.mock-table th:first-child { border-radius: 8px 0 0 0; }
-.mock-table th:last-child  { border-radius: 0 8px 0 0; }
-.mock-table td { padding: 7px 10px; color: var(--ink-mid); border-bottom: 1px solid #f0f0f0; }
-.mock-table tr:nth-child(even) td { background: #fafafa; }
-.badge {
-  display: inline-block; padding: 2px 8px; border-radius: 20px;
-  font-size: .58rem; font-weight: 700;
-}
-.badge-green { background: var(--verde-lt); color: var(--verde); }
-.badge-red   { background: #FDECEA; color: #B03020; }
-
-.mock-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 14px; padding-top: 12px;
-  border-top: 1px solid #f0f0f0;
-}
-.mock-footer-stat { font-size: .65rem; color: var(--ink-lt); }
-.mock-footer-stat strong { color: var(--rosa); font-size: .85rem; display: block; }
-
-/* Floating badges */
-
-/* ══════════════════════ SOCIAL PROOF BAR ══════════════════════ */
-.proof-bar {
-  background: var(--rosa-deep);
-  padding: 20px 80px;
-  display: flex; align-items: center; justify-content: space-around;
-  gap: 40px; flex-wrap: wrap;
-}
-.proof-item {
-  display: flex; align-items: center; gap: 12px;
-  color: rgba(255,255,255,.85); font-size: .88rem;
-}
-.proof-icon { font-size: 1.4rem; }
-.proof-item strong { color: #fff; font-size: 1.2rem; display: block; line-height: 1; }
-
-/* ══════════════════════ PROBLEM SECTION ══════════════════════ */
-.problem {
-  padding: 100px 80px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-  align-items: center;
-  background: var(--cream);
-  position: relative; overflow: hidden;
-}
-.problem::before {
-  content: '"';
-  position: absolute; top: -40px; left: 60px;
-  font-family: 'Playfair Display', serif;
-  font-size: 300px; color: rgba(156,45,90,.05);
-  line-height: 1; pointer-events: none;
-}
-
-.section-label {
-  font-size: .72rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--gold);
-  margin-bottom: 16px;
-  display: flex; align-items: center; gap: 10px;
-}
-
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 800; line-height: 1.15;
-  margin-bottom: 24px;
-}
-.section-title em { font-style: italic; color: var(--rosa); }
-
-.section-body {
-  color: var(--ink-mid); line-height: 1.8;
-  font-size: 1rem; font-weight: 300;
-}
-
-.pain-list {
-  list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 16px;
-}
-.pain-list li {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 16px 20px;
-  background: #fff;
-  border-radius: 12px;
-  border-left: 3px solid var(--rosa);
-  font-size: .95rem; color: var(--ink-mid);
-  box-shadow: 0 2px 12px rgba(26,16,24,.05);
-}
-.pain-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
-
-.solution-card {
-  background: linear-gradient(145deg, var(--rosa) 0%, var(--rosa-deep) 100%);
-  border-radius: 24px; padding: 44px 40px;
-  color: #fff; position: relative; overflow: hidden;
-}
-
-
-.solution-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.7rem; font-weight: 700;
-  margin-bottom: 24px;
-  position: relative; z-index: 1;
-}
-.solution-list {
-  list-style: none; display: flex; flex-direction: column; gap: 14px;
-  position: relative; z-index: 1;
-}
-.solution-list li {
-  display: flex; align-items: center; gap: 12px;
-  font-size: .95rem; font-weight: 400;
-  opacity: .92;
-}
-.solution-list li::before {
-  content: '✓';
-  width: 24px; height: 24px; border-radius: 50%;
-  background: rgba(255,255,255,.2);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: .8rem; font-weight: 700;
-}
-
-/* ══════════════════════ FEATURES ══════════════════════ */
-.features {
-  padding: 100px 80px;
-  position: relative;
-}
-.features-header { text-align: center; margin-bottom: 64px; }
-
-.features-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.feature-card {
-  background: #fff;
-  border-radius: 20px; padding: 36px 32px;
-  box-shadow: 0 4px 20px rgba(26,16,24,.06);
-  border: 1px solid rgba(156,45,90,.08);
-  transition: all .3s ease;
-  position: relative; overflow: hidden;
-}
-.feature-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(145deg, rgba(156,45,90,.03) 0%, transparent 60%);
-  opacity: 0; transition: opacity .3s;
-}
-.feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,16,24,.1); }
-.feature-card:hover::before { opacity: 1; }
-
-.feature-card.featured {
-  background: linear-gradient(145deg, var(--rosa) 0%, var(--rosa-deep) 100%);
-  color: #fff;
-  border-color: transparent;
-}
-.feature-card.featured .feat-label,
-.feature-card.featured .feat-title,
-.feature-card.featured .feat-body { color: rgba(255,255,255,.9); }
-.feature-card.featured .feat-icon-wrap { background: rgba(255,255,255,.15); }
-
-.feat-icon-wrap {
-  width: 52px; height: 52px; border-radius: 14px;
-  background: var(--rosa-lt);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; margin-bottom: 24px;
-}
-.feat-label {
-  font-size: .68rem; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--gold);
-  margin-bottom: 10px;
-}
-.feat-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem; font-weight: 700;
-  color: var(--ink); margin-bottom: 12px; line-height: 1.3;
-}
-.feat-body { font-size: .9rem; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
-
-/* ══════════════════════ WHAT'S INSIDE ══════════════════════ */
-.inside {
-  padding: 100px 80px;
-  background: var(--cream);
-}
-.inside-header { text-align: center; margin-bottom: 60px; }
-
-.tabs-nav {
-  display: flex; justify-content: center; gap: 8px;
-  flex-wrap: wrap; margin-bottom: 48px;
-}
-.tab-btn {
-  padding: 10px 22px; border-radius: 50px;
-  background: #fff; border: 1px solid rgba(156,45,90,.2);
-  font-size: .85rem; font-weight: 600; cursor: pointer;
-  color: var(--ink-mid); transition: all .2s ease;
-  font-family: 'DM Sans', sans-serif;
-}
-.tab-btn:hover  { border-color: var(--rosa); color: var(--rosa); }
-.tab-btn.active { background: var(--rosa); border-color: var(--rosa); color: #fff; }
-
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-.tab-panel {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
-}
-.tab-visual {
-  background: #fff;
-  border-radius: 20px; padding: 32px;
-  box-shadow: 0 8px 32px rgba(26,16,24,.08);
-}
-.tab-vis-header {
-  background: var(--rosa); border-radius: 10px;
-  padding: 12px 16px; margin-bottom: 20px;
-  font-size: .78rem; color: #fff; font-weight: 600;
-  display: flex; align-items: center; gap: 8px;
-}
-.mini-kpi-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 16px; }
-.mini-kpi {
-  border-radius: 8px; padding: 10px 12px;
-}
-.mini-kpi-lbl { font-size: .6rem; text-transform: uppercase; letter-spacing: .06em; opacity: .7; font-weight: 600; }
-.mini-kpi-val { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-top: 3px; }
-
-.mini-table { width: 100%; border-collapse: collapse; font-size: .68rem; }
-.mini-table th { background: #f5f5f5; padding: 6px 10px; text-align: left; font-weight: 700; font-size: .6rem; letter-spacing: .05em; color: var(--ink-lt); }
-.mini-table td { padding: 7px 10px; border-bottom: 1px solid #f5f5f5; color: var(--ink-mid); }
-
-.tab-info h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem; font-weight: 700;
-  color: var(--rosa); margin-bottom: 16px;
-}
-.tab-info p { color: var(--ink-mid); line-height: 1.8; font-size: .95rem; font-weight: 300; margin-bottom: 20px; }
-.tab-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.tab-features li {
-  display: flex; align-items: center; gap: 10px;
-  font-size: .9rem; color: var(--ink-mid);
-}
-.tab-features li::before {
-  content: '';
-  color: var(--gold); font-size: .75rem; flex-shrink: 0;
-}
-
-/* ══════════════════════ TESTIMONIALS ══════════════════════ */
-.testimonials {
-  padding: 100px 80px;
-  background: var(--off-white);
-}
-.testimonials-header { text-align: center; margin-bottom: 60px; }
-
-.testimonials-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.testi-card {
-  background: #fff; border-radius: 20px; padding: 32px;
-  box-shadow: 0 4px 20px rgba(26,16,24,.06);
-  border: 1px solid rgba(156,45,90,.07);
-  position: relative;
-}
-.testi-card::before {
-  content: '"';
-  position: absolute; top: 16px; right: 24px;
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem; color: var(--rosa-lt); line-height: 1;
-  pointer-events: none;
-}
-.testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
-.testi-text {
-  font-size: .93rem; color: var(--ink-mid); line-height: 1.7;
-  font-weight: 300; margin-bottom: 24px;
-  font-style: italic;
-}
-.testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--rosa-lt);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
-  border: 2px solid var(--rosa-lt);
-}
-.testi-name { font-weight: 700; font-size: .88rem; color: var(--ink); }
-.testi-role { font-size: .75rem; color: var(--ink-lt); }
-
-/* ══════════════════════ PRICING ══════════════════════ */
-.pricing {
-  padding: 100px 80px;
-  background: linear-gradient(180deg, var(--cream) 0%, var(--off-white) 100%);
-  text-align: center;
-}
-.pricing-header { margin-bottom: 60px; }
-
-.pricing-card {
-  max-width: 520px; margin: 0 auto;
-  background: #fff;
-  border-radius: 28px; padding: 52px 48px;
-  box-shadow: 0 20px 60px rgba(26,16,24,.12);
-  border: 1px solid rgba(156,45,90,.1);
-  position: relative; overflow: hidden;
-}
-.pricing-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--rosa) 0%, var(--gold) 100%);
-}
-
-.pricing-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold-lt), #fff3cc);
-  border: 1px solid var(--gold);
-  color: #8B6914; font-size: .75rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: 6px 18px; border-radius: 50px;
-  margin-bottom: 28px;
-}
-
-.pricing-old { font-size: 1rem; color: var(--ink-lt); text-decoration: line-through; margin-bottom: 8px; }
-.pricing-main {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem; font-weight: 900;
-  color: var(--rosa); line-height: 1;
-  margin-bottom: 4px;
-}
-.pricing-main sup { font-size: 2rem; vertical-align: super; }
-.pricing-pix {
-  font-size: .88rem; color: var(--verde); font-weight: 600;
-  margin-bottom: 36px;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-}
-.pricing-pix::before { content: '✓'; }
-
-.pricing-includes {
-  list-style: none; margin-bottom: 36px;
-  display: flex; flex-direction: column; gap: 12px;
-  text-align: left;
-}
-.pricing-includes li {
-  display: flex; align-items: center; gap: 12px;
-  font-size: .92rem; color: var(--ink-mid); padding: 10px 14px;
-  background: var(--off-white); border-radius: 10px;
-}
-.pricing-includes li span { font-size: 1.1rem; }
-
-.pricing-cta {
-  display: block;
-  background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-deep) 100%);
-  color: #fff; padding: 20px 48px; border-radius: 14px;
-  font-size: 1.05rem; font-weight: 700;
-  text-decoration: none; letter-spacing: .02em;
-  box-shadow: 0 8px 32px rgba(156,45,90,.35);
-  transition: all .3s ease;
-  margin-bottom: 20px;
-}
-.pricing-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(156,45,90,.5); }
-
-.pricing-trust {
-  display: flex; align-items: center; justify-content: center; gap: 20px;
-  font-size: .78rem; color: var(--ink-lt);
-  flex-wrap: wrap;
-}
-.pricing-trust span { display: flex; align-items: center; gap: 4px; }
-
-/* ══════════════════════ FAQ ══════════════════════ */
-.faq {
-  padding: 100px 80px;
-  max-width: 860px; margin: 0 auto;
-}
-.faq-header { text-align: center; margin-bottom: 52px; }
-.faq-item {
-  border-bottom: 1px solid rgba(156,45,90,.12);
-  padding: 24px 0;
-}
-.faq-q {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; font-weight: 700;
-  cursor: pointer; display: flex; justify-content: space-between;
-  align-items: center; gap: 16px;
-  color: var(--ink);
-  user-select: none;
-}
-.faq-q::after { content: '+'; font-size: 1.4rem; color: var(--rosa); transition: transform .3s; flex-shrink: 0; }
-.faq-item.open .faq-q::after { transform: rotate(45deg); }
-.faq-a {
-  font-size: .93rem; color: var(--ink-mid); line-height: 1.8;
-  font-weight: 300; max-height: 0; overflow: hidden;
-  transition: max-height .4s ease, padding .3s;
-}
-.faq-item.open .faq-a { max-height: 300px; padding-top: 14px; }
-
-/* ══════════════════════ FOOTER CTA ══════════════════════ */
-.footer-cta {
-  background: linear-gradient(145deg, var(--rosa) 0%, var(--rosa-deep) 100%);
-  padding: 100px 80px;
-  text-align: center;
-  position: relative; overflow: hidden;
-}
-
-
-.footer-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 900; color: #fff; margin-bottom: 16px;
-  position: relative; z-index: 1;
-}
-.footer-cta p {
-  color: rgba(255,255,255,.8); font-size: 1.1rem;
-  margin-bottom: 40px; font-weight: 300;
-  position: relative; z-index: 1;
-}
-.footer-cta a {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: #fff; color: var(--rosa);
-  padding: 18px 48px; border-radius: 14px;
-  font-size: 1rem; font-weight: 700; text-decoration: none;
-  box-shadow: 0 8px 32px rgba(0,0,0,.2);
-  transition: all .3s ease;
-  position: relative; z-index: 1;
-}
-.footer-cta a:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
-
-footer {
-  background: var(--ink); padding: 32px 80px;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
-}
-footer .logo { font-family: 'Playfair Display', serif; color: rgba(255,255,255,.6); font-size: .9rem; }
-footer .logo strong { color: #fff; }
-footer p { font-size: .78rem; color: rgba(255,255,255,.4); }
-
-/* ══════════════════════ ANIMATIONS ══════════════════════ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-
-.reveal {
-  opacity: 0; transform: translateY(32px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ══════════════════════ RESPONSIVE ══════════════════════ */
-@media (max-width: 960px) {
-  nav { padding: 16px 24px; }
-  .hero { grid-template-columns: 1fr; padding-top: 80px; }
-  .hero-left { padding: 60px 32px 40px; }
-  .hero-right { padding: 20px 32px 60px; }
-  .mockup-card { transform: none; }
-  
-  .proof-bar { padding: 20px 32px; }
-  .problem, .features, .inside, .testimonials, .pricing { padding: 64px 32px; }
-  .problem, .tab-panel { grid-template-columns: 1fr; gap: 40px; }
-  .features-grid, .testimonials-grid { grid-template-columns: 1fr; }
-  .footer-cta { padding: 64px 32px; }
-  footer { padding: 24px 32px; flex-direction: column; text-align: center; }
-  .faq { padding: 64px 32px; }
-}
-
-.wa-btn {
-  display: block; text-align: center;
-  border: 1.5px solid #25D366; color: #1a7a40;
-  padding: 14px 40px; border-radius: 4px;
-  font-size: .82rem; font-weight: 600;
-  text-decoration: none; letter-spacing: .04em;
-  transition: all .25s; margin-bottom: 20px;
-  background: #f4fcf7;
-}
-.wa-btn:hover { background: #e6f9ee; border-color: #1a7a40; }
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ter:#7B3B2A;--ter2:#9A4B32;--ter3:#C4813A;
+  --ter-light:#F5E6D3;--ter-pale:#FDF8F3;
+  --verde:#2E7D32;--verde-light:#E8F5E9;
+  --amber:#F57F17;--amber-light:#FFF8E1;
+  --red:#C62828;--red-light:#FFEBEE;
+  --blue:#1565C0;--blue-light:#E3F2FD;
+  --gray:#616161;--gray-light:#F5F5F5;
+  --dark:#1C0A00;--mid:#5D4037;--text:#3E2723;--muted:#795548;
+  --border:#E0CDB8;--white:#FFFFFF;--bg:#F9F4EE;
+  --shadow:0 2px 8px rgba(123,59,42,.10);
+}
+
+/* ── LAYOUT BASE ── */
+html,body{width:100%;height:100%}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;display:flex;flex-direction:column;height:100%;overflow:hidden}
+.app{display:flex;flex:1;overflow:hidden;min-height:0}
+.sb{width:200px;background:var(--ter);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
+.sb-logo{padding:18px 14px 14px;border-bottom:1px solid rgba(255,255,255,.15);text-align:center;flex-shrink:0}
+.sb-icon{font-size:28px;margin-bottom:3px}
+.sb-title{font-size:14px;font-weight:700;color:#fff;line-height:1.2}
+.sb-sub{font-size:9px;letter-spacing:.6px;color:#F5CBA7;margin-top:3px;opacity:.85}
+.nav{flex:1;padding:10px 0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.ni{display:flex;align-items:center;gap:8px;padding:11px 14px;color:rgba(255,255,255,.75);font-size:13px;cursor:pointer;border-left:3px solid transparent;user-select:none}
+.ni.on{background:rgba(255,255,255,.18);color:#fff;border-left-color:#F5CBA7;font-weight:600}
+.ni i{font-size:16px}
+.sb-foot{padding:10px 14px;border-top:1px solid rgba(255,255,255,.12);font-size:10px;color:rgba(255,255,255,.4);text-align:center;flex-shrink:0}
+.main{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.topbar{background:var(--white);border-bottom:1.5px solid var(--border);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
+.tb-title{font-size:16px;font-weight:700;color:var(--dark)}
+.tb-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.tb-right{display:flex;gap:6px;align-items:center}
+.content{flex:1;overflow-y:scroll;-webkit-overflow-scrolling:touch;padding:16px 18px}
+
+/* ── LICENÇA OVERLAY ── */
+.lic-hide{display:none!important}
+.lic-show{display:flex!important}
+#_lic_ov{position:fixed;inset:0;background:var(--bg);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:30px;overflow-y:auto}
+#_lic_warn{position:fixed;top:0;left:0;right:0;z-index:8000;background:#7B3B2A;color:#fff;padding:10px 20px;font-size:13px;font-weight:600;align-items:center;justify-content:center;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.scr{display:none}.scr.on{display:block}
+
+/* ── BOTÕES ── */
+.btn{border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:600;border:none;background:var(--ter);color:#fff;-webkit-appearance:none;text-decoration:none}
+.btn-sec{background:transparent;color:var(--ter);border:1.5px solid var(--ter)}
+.btn-sm{padding:5px 9px;font-size:12px}
+.btn-danger{background:var(--red-light);color:var(--red);border:1.5px solid var(--red)}
+
+/* ── CHIPS ── */
+.chip{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip-livre{background:#C8E6C9;color:#1B5E20}.chip-ocup{background:#FFCDD2;color:#B71C1C}
+.chip-limp{background:#FFF9C4;color:#F57F17}.chip-reserv{background:#BBDEFB;color:#0D47A1}
+.chip-pago{background:#C8E6C9;color:#1B5E20}.chip-pend{background:#FFCDD2;color:#B71C1C}
+
+/* ── CARDS / GRIDS ── */
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media(min-width:700px){.metrics{grid-template-columns:repeat(4,1fr)}}
+.mc{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px}
+.mc-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+.mc-val{font-size:24px;font-weight:700;color:var(--dark)}
+.mc-sub{font-size:11px;color:var(--ter3);margin-top:3px}
+.sec-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sec-title i{font-size:16px;color:var(--ter)}
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;overflow:hidden}
+.card-body{padding:14px 16px}
+.mapa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:600px){.mapa-grid{grid-template-columns:repeat(3,1fr)}}
+.qcard{background:var(--white);border:2.5px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;user-select:none}
+.qcard.livre{border-color:#43A047}.qcard.ocup{border-color:#E53935}
+.qcard.limp{border-color:#FFB300}.qcard.reserv{border-color:#1E88E5}
+.q-badge{position:absolute;top:8px;right:8px}
+.q-num{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.5px;margin-bottom:2px}
+.q-nome{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:1px}
+.q-tipo{font-size:11px;color:var(--muted);margin-bottom:6px}
+.q-hospede{font-size:11px;color:var(--mid);margin-top:4px}
+.q-hint{font-size:10px;color:var(--muted);margin-top:6px;font-style:italic}
+.legend{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.leg{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* ── FORMULÁRIO ── */
+.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px;max-width:600px}
+.form-sect{font-size:11px;font-weight:700;color:var(--ter);text-transform:uppercase;letter-spacing:.8px;margin:16px 0 8px;display:flex;align-items:center;gap:6px}
+.form-sect:first-child{margin-top:0}
+.form-sect::after{content:'';flex:1;height:1px;background:var(--ter-light)}
+.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.fg label{font-size:11px;color:var(--muted);font-weight:600}
+.fg input,.fg select,.fg textarea{border:1.5px solid var(--border);border-radius:8px;padding:9px 11px;font-size:16px;color:var(--dark);background:var(--ter-pale);font-family:inherit;outline:none;width:100%;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ter)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:500px){.fg-row3{grid-template-columns:1fr 1fr}}
+.sinal-box{background:var(--amber-light);border:1.5px solid #FFD54F;border-radius:9px;padding:10px 12px;font-size:12px;color:#5D4037;margin:8px 0;display:flex;align-items:flex-start;gap:7px}
+.quartos-sel{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:5px}
+.qs-opt{border:2px solid var(--border);border-radius:9px;padding:8px 6px;cursor:pointer;text-align:center}
+.qs-opt.sel{border-color:var(--ter);background:var(--ter-light)}
+.qs-opt.ocupado{opacity:.4;pointer-events:none;background:var(--gray-light)}
+.qs-num{font-weight:700;font-size:15px;color:var(--dark)}
+.qs-tipo{font-size:9px;color:var(--muted);margin-top:1px}
+.qs-preco{font-size:10px;color:var(--ter3);margin-top:2px;font-weight:600}
+.qs-indis{font-size:9px;color:var(--red);margin-top:2px}
+
+/* ── RESERVAS / HÓSPEDES ── */
+.srch{background:var(--white);border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.srch input{border:none;outline:none;flex:1;font-size:16px;background:transparent;color:var(--dark);font-family:inherit;-webkit-appearance:none}
+.res-item{background:var(--white);border:1.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.res-head{padding:11px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+.res-av{width:38px;height:38px;border-radius:50%;background:var(--ter-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--ter);flex-shrink:0}
+.res-nome{font-size:13px;font-weight:700;color:var(--dark)}
+.res-det{font-size:11px;color:var(--muted);margin-top:1px}
+.res-actions{margin-left:auto;display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.res-body{padding:9px 14px 11px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.rbl{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:3px}
+.res-obs{padding:7px 14px 9px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:flex-start;gap:4px}
+.h-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--border)}
+.h-row:last-child{border:none}
+.h-av{width:38px;height:38px;border-radius:50%;background:var(--ter-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--ter);flex-shrink:0}
+.h-name{font-size:13px;font-weight:700;color:var(--dark)}
+.h-info{font-size:11px;color:var(--muted)}
+.h-stat{text-align:right;margin-left:auto}
+.h-count{font-size:13px;font-weight:700;color:var(--ter3)}
+.h-last{font-size:10px;color:var(--muted);margin-top:1px}
+.sinal-pend-warn{background:#FFF3CD;border:1px solid #FFD54F;border-radius:8px;padding:7px 11px;font-size:11px;color:#856404;display:flex;align-items:center;gap:5px;margin-top:5px}
+
+/* ── FINANCEIRO ── */
+.fin-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px 16px;text-align:center}
+.fin-lock-icon{font-size:44px;color:var(--ter3)}
+.fin-lock h3{font-size:16px;font-weight:700;color:var(--dark)}
+.fin-lock p{font-size:13px;color:var(--muted);max-width:280px;line-height:1.6}
+.pin-row{display:flex;gap:10px;justify-content:center}
+.pin-d{width:54px;height:60px;text-align:center;font-size:22px;font-weight:700;border:2px solid var(--border);border-radius:10px;background:var(--ter-pale);color:var(--dark);outline:none;font-family:inherit;-webkit-appearance:none}
+.pin-d:focus{border-color:var(--ter)}
+.pin-err{font-size:12px;color:var(--red);min-height:16px;text-align:center}
+.fin-cards{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:16px}
+@media(min-width:500px){.fin-cards{grid-template-columns:repeat(3,1fr)}}
+.fin-c{border-radius:12px;padding:16px}
+.fin-c.rec{background:var(--verde-light);border:1.5px solid #A5D6A7}
+.fin-c.pend{background:var(--amber-light);border:1.5px solid #FFE082}
+.fin-c.tot{background:var(--white);border:1.5px solid var(--border)}
+.fin-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+.fin-c.rec .fin-label{color:var(--verde)}.fin-c.pend .fin-label{color:var(--amber)}.fin-c.tot .fin-label{color:var(--muted)}
+.fin-val{font-size:20px;font-weight:700}
+.fin-c.rec .fin-val{color:var(--verde)}.fin-c.pend .fin-val{color:var(--amber)}.fin-c.tot .fin-val{color:var(--dark)}
+.fin-sub{font-size:11px;margin-top:2px}
+.fin-c.rec .fin-sub{color:#388E3C}.fin-c.pend .fin-sub{color:#F57F17}.fin-c.tot .fin-sub{color:var(--muted)}
+.fin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.lanc{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.lanc:last-child{border:none}
+.lanc-ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.lanc-ic.e{background:var(--verde-light);color:var(--verde)}
+.lanc-ic.s{background:var(--amber-light);color:var(--amber)}
+.lanc-t{font-size:12px;color:var(--dark);font-weight:500}
+.lanc-d{font-size:11px;color:var(--muted)}
+.lanc-v{font-size:13px;font-weight:700;text-align:right;white-space:nowrap}
+.lanc-v.e{color:var(--verde)}.lanc-v.s{color:var(--amber)}
+
+/* ── CONFIGURAÇÕES ── */
+.bkp-box{display:flex;align-items:center;gap:12px;background:var(--ter-pale);border:1.5px solid var(--ter-light);border-radius:12px;padding:14px 16px;margin-bottom:12px;flex-wrap:wrap}
+.bkp-box i{font-size:28px;color:var(--ter);flex-shrink:0}
+.info-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.info-sub{font-size:11px;color:var(--muted)}
+.bkp-btn{margin-left:auto}
+.conf-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.conf-row:last-child{border:none}
+.conf-nome{font-size:13px;font-weight:600;color:var(--dark)}
+.conf-tipo{font-size:11px;color:var(--muted)}
+.conf-select{font-size:13px;padding:5px 8px;border:1.5px solid var(--border);border-radius:7px;background:var(--ter-pale);color:var(--dark);font-family:inherit;outline:none;-webkit-appearance:none}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:1000;padding:16px;overflow-y:auto}
+.modal-overlay.hide{display:none}
+.modal{background:var(--white);border-radius:16px;padding:22px 24px;width:100%;max-width:400px}
+.modal h3{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+.modal-btns{display:flex;gap:8px;margin-top:16px}
+.modal-btns button{flex:1}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ter);color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;z-index:2000;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Gestão Salão <span>Pro</span></div>
-  <a href="#pricing" class="nav-cta">Quero minha planilha →</a>
-</nav>
+<!-- AVISO VENCIMENTO -->
+<div id="_lic_warn" class="lic-hide">
+  <i class="ti ti-alert-triangle" style="font-size:16px;color:#FFD54F;flex-shrink:0"></i>
+  <span>Seu acesso vence em breve. Entre em contato com o suporte.</span>
+  <button id="_lic_warn_close" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:12px;margin-left:auto;flex-shrink:0">Fechar</button>
+</div>
 
-<!-- ══════ HERO ══════ -->
-<section class="hero">
-    
+<!-- OVERLAY DE LICENÇA -->
+<div id="_lic_ov" class="lic-hide">
+  <div style="font-size:54px">🌸</div>
+  <div style="font-size:20px;font-weight:700;color:var(--dark)">Pousada Fonte das Flores</div>
+  <div style="font-size:13px;color:var(--muted);max-width:340px;line-height:1.7">O acesso ao sistema precisa ser renovado.<br>Entre em contato com o suporte.</div>
+  <div style="background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:20px 22px;max-width:360px;width:100%">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Digite a senha de acesso</div>
+    <input id="_lic_inp" type="text" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" placeholder="Senha do mês ou chave vitalícia" style="width:100%;border:1.5px solid var(--border);border-radius:8px;padding:11px 14px;font-size:16px;outline:none;font-family:inherit;background:var(--ter-pale);margin-bottom:10px;-webkit-appearance:none">
+    <button id="_lic_btn" style="width:100%;background:var(--ter);color:#fff;border:none;border-radius:8px;padding:12px;font-size:15px;font-weight:600;cursor:pointer">Entrar</button>
+    <div id="_lic_err" style="font-size:12px;color:var(--red);margin-top:8px;min-height:16px"></div>
+  </div>
+  <div style="font-size:11px;color:var(--muted)">Suporte: entre em contato com o desenvolvedor</div>
+</div>
 
-  <div class="hero-left">
-    <div class="hero-badge">Exclusivo para salões de beleza</div>
+<div class="app">
+  <div class="sb">
+    <div class="sb-logo">
+      <div class="sb-icon">🌸</div>
+      <div class="sb-title">Fonte das Flores</div>
+      <div class="sb-sub">POUSADA · CAMBUQUIRA · MG</div>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="ni on" data-scr="painel"><i class="ti ti-layout-dashboard"></i> Painel</div>
+      <div class="ni" data-scr="mapa"><i class="ti ti-layout-grid"></i> Suítes</div>
+      <div class="ni" data-scr="nova"><i class="ti ti-calendar-plus"></i> Nova reserva</div>
+      <div class="ni" data-scr="reservas"><i class="ti ti-list"></i> Reservas</div>
+      <div class="ni" data-scr="hospedes"><i class="ti ti-users"></i> Hóspedes</div>
+      <div class="ni" data-scr="config"><i class="ti ti-settings"></i> Configurações</div>
+    </nav>
+    <div class="sb-foot">v2.0<br><span id="fin-nav-link" style="cursor:pointer;opacity:.4;font-size:10px;text-decoration:underline;color:rgba(255,255,255,.6);display:inline-block;margin-top:4px">financeiro</span></div>
+  </div>
 
-    <h1 class="hero-title">
-      Chega de perder<br>dinheiro por falta<br>
-      <em>de controle.</em>
-    </h1>
-
-    <p class="hero-sub">
-      A planilha completa que organiza <strong>receitas, despesas, comissões e estoque</strong> do seu salão — tudo automático, sem precisar de contador ou sistema caro.
-    </p>
-
-    <div class="hero-price-block">
+  <div class="main">
+    <div class="topbar">
       <div>
-        <div class="price-from">De R$ 79,90</div>
-        <div class="price-main"><sup>R$</sup>47,00</div>
+        <div class="tb-title" id="tb-title">Painel Geral</div>
+        <div class="tb-sub" id="tb-sub">Bem-vinda!</div>
       </div>
-      <div class="price-note">Pagamento único<br>Acesso vitalício</div>
-    </div>
-
-    <div class="hero-actions">
-      <a href="https://pay.kiwify.com.br/xKVK3xM" target="_blank" class="btn-primary">
-        Quero controlar meu salão agora
-      </a>
-      <a href="#inside" class="btn-secondary">
-        Ver o que está incluído
-      </a>
-      <div class="hero-guarantee">
-        <span>Compra 100% segura</span>
-        &nbsp;·&nbsp; Entrega imediata por e-mail
+      <div class="tb-right">
+        <button id="btn-nova" class="btn btn-sm"><i class="ti ti-plus"></i> Nova reserva</button>
       </div>
     </div>
-  </div>
 
-  <div class="hero-right">
-    <div class="mockup-wrap">
-      
+    <div class="content">
 
-      <div class="mockup-card">
-        <div class="mockup-bar">
-          <div class="mockup-dots"><span></span><span></span><span></span></div>
-          <div class="mockup-title-bar">✂ GESTÃO SALÃO PRO — Janeiro/2025</div>
+      <!-- PAINEL -->
+      <div class="scr on" id="scr-painel">
+        <div class="metrics">
+          <div class="mc"><div class="mc-label">Suítes livres</div><div class="mc-val" id="m-livres">—</div><div class="mc-sub">prontas</div></div>
+          <div class="mc"><div class="mc-label">Ocupadas</div><div class="mc-val" id="m-ocup">—</div><div class="mc-sub">em uso</div></div>
+          <div class="mc"><div class="mc-label">Limpeza</div><div class="mc-val" id="m-limp">—</div><div class="mc-sub">aguardando</div></div>
+          <div class="mc"><div class="mc-label">Reservas</div><div class="mc-val" id="m-res">—</div><div class="mc-sub">cadastradas</div></div>
         </div>
-        <div class="mockup-body">
-          <div class="mock-header">
-            <div>
-              <div class="mock-header-title">✂ Meu Salão de Beleza</div>
-              <div class="mock-header-sub">Painel Principal · Janeiro/2025</div>
-            </div>
-            <div style="font-size:1.6rem">💄</div>
+        <div class="sec-title"><i class="ti ti-calendar-event"></i> Reservas</div>
+        <div id="painel-lista"></div>
+      </div>
+
+      <!-- MAPA -->
+      <div class="scr" id="scr-mapa">
+        <div class="legend">
+          <div class="leg"><div class="leg-dot" style="background:#43A047"></div> Livre</div>
+          <div class="leg"><div class="leg-dot" style="background:#E53935"></div> Ocupada</div>
+          <div class="leg"><div class="leg-dot" style="background:#FFB300"></div> Limpeza</div>
+          <div class="leg"><div class="leg-dot" style="background:#1E88E5"></div> Reservada</div>
+        </div>
+        <div class="mapa-grid" id="mapa-grid"></div>
+        <p style="margin-top:12px;font-size:11px;color:var(--muted);font-style:italic">Toque em uma suíte para avançar o status.</p>
+      </div>
+
+      <!-- NOVA RESERVA -->
+      <div class="scr" id="scr-nova">
+        <div class="form-card">
+          <div class="form-sect"><i class="ti ti-user"></i> Dados do hóspede</div>
+          <div class="fg-row">
+            <div class="fg"><label>Nome completo *</label><input id="f-nome" type="text" placeholder="Maria da Silva" autocomplete="name"></div>
+            <div class="fg"><label>Telefone / WhatsApp *</label><input id="f-tel" type="tel" placeholder="(35) 99999-0000"></div>
           </div>
-
-          <div class="mock-kpis">
-            <div class="mock-kpi kpi-green">
-              <div class="mock-kpi-label">💰 Receita</div>
-              <div class="mock-kpi-value">R$ 8.420</div>
-            </div>
-            <div class="mock-kpi kpi-red">
-              <div class="mock-kpi-label">💸 Despesas</div>
-              <div class="mock-kpi-value">R$ 3.180</div>
-            </div>
-            <div class="mock-kpi kpi-rosa">
-              <div class="mock-kpi-label">🏆 Lucro</div>
-              <div class="mock-kpi-value">R$ 5.240</div>
-            </div>
-            <div class="mock-kpi kpi-gray">
-              <div class="mock-kpi-label">👥 Clientes</div>
-              <div class="mock-kpi-value">142</div>
+          <div class="fg-row">
+            <div class="fg"><label>CPF</label><input id="f-cpf" type="text" placeholder="000.000.000-00"></div>
+            <div class="fg"><label>Nº de hóspedes</label>
+              <select id="f-qtd"><option>1 pessoa</option><option selected>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 ou mais</option></select>
             </div>
           </div>
-
-          <table class="mock-table">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Serviço</th>
-                <th>Profissional</th>
-                <th>Valor</th>
-                <th>Tipo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>15/01</td><td>Tintura</td><td>Ana Paula</td><td>R$ 120</td><td><span class="badge badge-green">Receita</span></td></tr>
-              <tr><td>15/01</td><td>Escova</td><td>Joana</td><td>R$ 50</td><td><span class="badge badge-green">Receita</span></td></tr>
-              <tr><td>15/01</td><td>Produtos</td><td>—</td><td>R$ 280</td><td><span class="badge badge-red">Despesa</span></td></tr>
-              <tr><td>16/01</td><td>Progressiva</td><td>Ana Paula</td><td>R$ 180</td><td><span class="badge badge-green">Receita</span></td></tr>
-            </tbody>
-          </table>
-
-          <div class="mock-footer">
-            <div class="mock-footer-stat">
-              <strong>62.2%</strong>Margem de lucro
-            </div>
-            <div class="mock-footer-stat">
-              <strong>R$ 59,30</strong>Ticket médio
-            </div>
-            <div class="mock-footer-stat">
-              <strong>✅ Saudável</strong>Status do mês
-            </div>
+          <div class="form-sect"><i class="ti ti-calendar"></i> Período e suíte</div>
+          <div class="fg-row">
+            <div class="fg"><label>Check-in *</label><input id="f-in" type="date"></div>
+            <div class="fg"><label>Check-out *</label><input id="f-out" type="date"></div>
+          </div>
+          <div class="fg"><label>Escolha a suíte *</label><div class="quartos-sel" id="quartos-sel"></div></div>
+          <div class="form-sect"><i class="ti ti-cash"></i> Pagamento</div>
+          <div class="sinal-box"><i class="ti ti-info-circle" style="font-size:16px;color:var(--amber);flex-shrink:0"></i><div>A pousada cobra <strong>50% de adiantamento</strong> no momento da reserva.</div></div>
+          <div class="fg-row3">
+            <div class="fg"><label>Valor total (R$) *</label><input id="f-valor" type="number" placeholder="0,00" min="0" step="0.01" inputmode="decimal"></div>
+            <div class="fg"><label>Valor do sinal (50%)</label><input id="f-sinal-val" type="text" readonly style="background:#f0f0f0;color:var(--muted)"></div>
+            <div class="fg"><label>Sinal recebido?</label><select id="f-sinal"><option value="nao">Ainda não</option><option value="sim">Sim, recebido</option></select></div>
+          </div>
+          <div class="fg"><label>Forma de pagamento</label>
+            <select id="f-pag"><option>PIX</option><option>Cartão de crédito</option><option>Cartão de débito</option><option>Dinheiro</option><option>Transferência</option></select>
+          </div>
+          <div class="fg"><label>Observações</label><textarea id="f-obs" rows="2" placeholder="Pediu berço, chegada após 18h..."></textarea></div>
+          <div style="display:flex;gap:8px;margin-top:4px">
+            <button id="btn-salvar-reserva" class="btn" style="flex:1"><i class="ti ti-device-floppy"></i> Salvar reserva</button>
+            <button id="btn-cancelar-reserva" class="btn btn-sec">Cancelar</button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-item">
-    
-    <div><strong>+1 milhão</strong> de salões MEI no Brasil</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-icon">⚡</div>
-    <div><strong>Entrega imediata</strong> após o pagamento</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-icon">📊</div>
-    <div><strong>6 módulos</strong> completos integrados</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-icon">🔒</div>
-    <div><strong>Acesso vitalício</strong> pagamento único</div>
+      <!-- RESERVAS -->
+      <div class="scr" id="scr-reservas">
+        <div class="srch"><i class="ti ti-search"></i><input type="search" id="srch-res" placeholder="Buscar hóspede..."></div>
+        <div id="lista-reservas"></div>
+      </div>
+
+      <!-- HÓSPEDES -->
+      <div class="scr" id="scr-hospedes">
+        <div class="srch"><i class="ti ti-search"></i><input type="search" id="srch-hosp" placeholder="Buscar hóspede..."></div>
+        <div class="card"><div class="card-body" id="lista-hospedes"></div></div>
+      </div>
+
+      <!-- FINANCEIRO -->
+      <div class="scr" id="scr-financeiro">
+        <div id="fin-lock-screen">
+          <div class="fin-lock">
+            <i class="ti ti-lock fin-lock-icon"></i>
+            <h3>Área financeira</h3>
+            <p>Digite a senha de 4 dígitos para acessar.</p>
+            <div class="pin-row">
+              <input class="pin-d" type="number" inputmode="numeric" maxlength="1" min="0" max="9">
+              <input class="pin-d" type="number" inputmode="numeric" maxlength="1" min="0" max="9">
+              <input class="pin-d" type="number" inputmode="numeric" maxlength="1" min="0" max="9">
+              <input class="pin-d" type="number" inputmode="numeric" maxlength="1" min="0" max="9">
+            </div>
+            <div class="pin-err" id="fin-pin-err"></div>
+            <button id="btn-entrar-fin" class="btn"><i class="ti ti-lock-open"></i> Entrar</button>
+            <button id="btn-voltar-fin" class="btn btn-sec btn-sm" style="margin-top:-4px"><i class="ti ti-arrow-left"></i> Voltar</button>
+          </div>
+        </div>
+        <div id="fin-content" class="lic-hide">
+          <div class="fin-header">
+            <div class="sec-title" style="margin:0"><i class="ti ti-report-money"></i> Resumo financeiro</div>
+            <button id="btn-fechar-fin" class="btn btn-sec btn-sm"><i class="ti ti-lock"></i> Fechar</button>
+          </div>
+          <div class="fin-cards">
+            <div class="fin-c rec"><div class="fin-label">Sinais recebidos</div><div class="fin-val" id="fin-rec">R$ 0</div><div class="fin-sub">entradas confirmadas</div></div>
+            <div class="fin-c pend"><div class="fin-label">Sinais pendentes</div><div class="fin-val" id="fin-pend">R$ 0</div><div class="fin-sub">a cobrar</div></div>
+            <div class="fin-c tot"><div class="fin-label">Total contratado</div><div class="fin-val" id="fin-tot">R$ 0</div><div class="fin-sub">todas as reservas</div></div>
+          </div>
+          <div class="sec-title"><i class="ti ti-list-details"></i> Histórico</div>
+          <div class="card"><div class="card-body" id="lista-fin"></div></div>
+        </div>
+      </div>
+
+      <!-- CONFIGURAÇÕES -->
+      <div class="scr" id="scr-config">
+        <div class="sec-title"><i class="ti ti-database-export"></i> Backup</div>
+        <div class="bkp-box">
+          <i class="ti ti-download"></i>
+          <div><div class="info-title">Exportar backup</div><div class="info-sub">Salva todas as reservas e dados.</div></div>
+          <div class="bkp-btn"><button id="btn-exportar" class="btn btn-sm"><i class="ti ti-download"></i> Baixar</button></div>
+        </div>
+        <div class="bkp-box" style="background:var(--blue-light);border-color:#90CAF9">
+          <i class="ti ti-upload" style="color:var(--blue)"></i>
+          <div><div class="info-title">Importar backup</div><div class="info-sub">Restaura dados de um backup salvo.</div></div>
+          <div class="bkp-btn"><label class="btn btn-sec btn-sm" style="cursor:pointer;border-color:var(--blue);color:var(--blue)"><i class="ti ti-upload"></i> Importar<input type="file" accept=".json" id="input-importar" style="display:none"></label></div>
+        </div>
+        <div class="sec-title" style="margin-top:16px"><i class="ti ti-layout-grid"></i> Suítes</div>
+        <div class="card" style="margin-bottom:16px"><div class="card-body" id="conf-quartos"></div></div>
+        <div class="sec-title"><i class="ti ti-lock"></i> Senha do financeiro</div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-body">
+            <p style="font-size:12px;color:var(--muted);margin-bottom:12px">Senha padrão: <strong>1234</strong>. Troque para algo que só você saiba.</p>
+            <div class="fg-row">
+              <div class="fg"><label>Senha atual</label><input id="cfg-pin-atual" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div>
+              <div class="fg"><label>Nova senha</label><input id="cfg-pin-nova" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div>
+              <div class="fg"><label>Confirmar</label><input id="cfg-pin-conf" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div>
+            </div>
+            <div id="cfg-pin-err" class="pin-err" style="margin-bottom:8px"></div>
+            <button id="btn-trocar-senha" class="btn btn-sm"><i class="ti ti-device-floppy"></i> Salvar nova senha</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<!-- PROBLEM -->
-<section class="problem">
-  <div>
-    <div class="section-label reveal">O problema</div>
-    <h2 class="section-title reveal">Você sabe <em>quanto seu salão realmente lucra</em> por mês?</h2>
-    <p class="section-body reveal">A maioria dos donos de salão trabalha duro o mês inteiro e no fim não sabe dizer com exatidão se teve lucro ou prejuízo. O dinheiro entra, o dinheiro sai — e a conta nunca fecha direito.</p>
-
-    <ul class="pain-list">
-      <li class="reveal"><span class="pain-icon">😟</span> Não sabe quanto pagar de comissão para cada profissional parceira</li>
-      <li class="reveal"><span class="pain-icon">📦</span> Descobre que está sem produto no meio do atendimento</li>
-      <li class="reveal"><span class="pain-icon">💸</span> Mistura dinheiro do salão com o pessoal e perde o controle</li>
-      <li class="reveal"><span class="pain-icon">📋</span> Não tem como mostrar os resultados para o contador ou banco</li>
-    </ul>
-  </div>
-
-  <div class="solution-card reveal">
-    <h3>A solução está aqui 👇</h3>
-    <ul class="solution-list">
-      <li>Registre receitas e despesas em segundos</li>
-      <li>Comissão calculada automaticamente por profissional</li>
-      <li>Alerta vermelho quando produto estiver acabando</li>
-      <li>Dashboard com lucro, margem e ticket médio do mês</li>
-      <li>Relatório mensal pronto para o contador</li>
-      <li>Funciona no Excel — sem mensalidade, sem app</li>
-      <li>Você recebe o arquivo e usa para sempre</li>
-    </ul>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-  <div class="features-header">
-    <div class="section-label reveal" style="justify-content:center">O que você vai ter</div>
-    <h2 class="section-title reveal" style="text-align:center">Tudo que seu salão<br><em>precisa em um arquivo</em></h2>
-  </div>
-
-  <div class="features-grid">
-    <div class="feature-card reveal">
-      <div class="feat-icon-wrap">📋</div>
-      <div class="feat-label">Módulo 1</div>
-      <div class="feat-title">Lançamentos do Mês</div>
-      <div class="feat-body">150 linhas com menus suspensos inteligentes. Receitas ficam verdes, despesas ficam vermelhas automaticamente. Totais calculados no rodapé.</div>
+<!-- MODAL EDITAR SUÍTE -->
+<div class="modal-overlay hide" id="modal-quarto">
+  <div class="modal">
+    <h3><i class="ti ti-door" style="color:var(--ter)"></i> Editar suíte</h3>
+    <input type="hidden" id="eq-id">
+    <div class="fg-row">
+      <div class="fg"><label>Nome</label><input id="eq-nome" type="text"></div>
+      <div class="fg"><label>Tipo</label><input id="eq-tipo" type="text"></div>
     </div>
-
-    <div class="feature-card featured reveal">
-      <div class="feat-icon-wrap">💄</div>
-      <div class="feat-label">Destaque</div>
-      <div class="feat-title">Controle de Comissões</div>
-      <div class="feat-body">O módulo que nenhuma planilha grátis tem. Calcula automaticamente o valor de comissão de cada profissional parceira com base nos atendimentos do mês.</div>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feat-icon-wrap">📦</div>
-      <div class="feat-label">Módulo 3</div>
-      <div class="feat-title">Controle de Estoque</div>
-      <div class="feat-body">Cadastre seus produtos e defina a quantidade mínima. O status vira ⚠️ REPOR automaticamente — nunca mais fique sem produto no meio do atendimento.</div>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feat-icon-wrap">🏠</div>
-      <div class="feat-label">Módulo 4</div>
-      <div class="feat-title">Painel Principal</div>
-      <div class="feat-body">Dashboard executivo com os 4 KPIs mais importantes: receita, despesas, lucro e clientes. Indicador automático de saúde financeira do salão.</div>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feat-icon-wrap">📊</div>
-      <div class="feat-label">Módulo 5</div>
-      <div class="feat-title">Relatório Mensal</div>
-      <div class="feat-body">Receita por serviço, despesa por categoria, ticket médio, margem de lucro. Tudo calculado e organizado para você analisar ou apresentar ao contador.</div>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feat-icon-wrap">⚙️</div>
-      <div class="feat-label">Módulo 6</div>
-      <div class="feat-title">Configurações</div>
-      <div class="feat-body">Configure o nome do salão, serviços, preços padrão e percentuais de comissão de cada profissional. Alimenta todos os menus automaticamente.</div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT'S INSIDE -->
-<section class="inside" id="inside">
-  <div class="inside-header">
-    <div class="section-label reveal" style="justify-content:center">Veja por dentro</div>
-    <h2 class="section-title reveal" style="text-align:center">Explore cada<br><em>módulo da planilha</em></h2>
-  </div>
-
-  <div class="tabs-nav">
-    <button class="tab-btn active" onclick="showTab('painel')">🏠 Painel</button>
-    <button class="tab-btn" onclick="showTab('lancamentos')">📋 Lançamentos</button>
-    <button class="tab-btn" onclick="showTab('comissoes')">💄 Comissões</button>
-    <button class="tab-btn" onclick="showTab('estoque')">📦 Estoque</button>
-    <button class="tab-btn" onclick="showTab('relatorio')">📊 Relatório</button>
-  </div>
-
-  <div id="tab-painel" class="tab-content active">
-    <div class="tab-panel">
-      <div class="tab-visual reveal">
-        <div class="tab-vis-header">🏠 Painel Principal — Gestão Salão Pro</div>
-        <div class="mini-kpi-row">
-          <div class="mini-kpi kpi-green"><div class="mini-kpi-lbl">💰 Receita</div><div class="mini-kpi-val">R$ 8.420</div></div>
-          <div class="mini-kpi kpi-red"><div class="mini-kpi-lbl">💸 Despesas</div><div class="mini-kpi-val">R$ 3.180</div></div>
-          <div class="mini-kpi kpi-rosa"><div class="mini-kpi-lbl">🏆 Lucro</div><div class="mini-kpi-val">R$ 5.240</div></div>
-          <div class="mini-kpi kpi-gray"><div class="mini-kpi-lbl">👥 Clientes</div><div class="mini-kpi-val">142</div></div>
-        </div>
-        <div style="background:#F0FBF5;border-radius:10px;padding:14px 16px;font-size:.8rem;font-weight:700;color:#1A6B40;text-align:center;">
-          📈 Margem de Lucro: 62.2% → ✅ SAUDÁVEL — Parabéns! Seu salão está lucrativo.
-        </div>
-      </div>
-      <div class="tab-info reveal">
-        <h3>Painel Principal</h3>
-        <p>A primeira coisa que você vê ao abrir a planilha. Números grandes, claros e atualizados automaticamente com base nos seus lançamentos.</p>
-        <ul class="tab-features">
-          <li>4 KPIs em destaque: receita, despesas, lucro e clientes</li>
-          <li>Indicador de saúde com cor automática (verde/vermelho)</li>
-          <li>Margem de lucro calculada em tempo real</li>
-          <li>Guia de navegação integrado para os outros módulos</li>
-        </ul>
+    <div class="fg-row">
+      <div class="fg"><label>Valor/noite (R$)</label><input id="eq-preco" type="number" min="0" step="0.01" inputmode="decimal"></div>
+      <div class="fg"><label>Capacidade</label>
+        <select id="eq-cap"><option value="1">1 pessoa</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas</option><option value="5">5 pessoas</option><option value="6">6+</option></select>
       </div>
     </div>
-  </div>
-
-  <div id="tab-lancamentos" class="tab-content">
-    <div class="tab-panel">
-      <div class="tab-visual reveal">
-        <div class="tab-vis-header">📋 Lançamentos do Mês</div>
-        <table class="mini-table">
-          <thead><tr><th>Data</th><th>Tipo</th><th>Serviço</th><th>Profissional</th><th>Valor</th></tr></thead>
-          <tbody>
-            <tr><td>15/01</td><td><span class="badge badge-green">Receita</span></td><td>Tintura</td><td>Ana Paula</td><td>R$ 120,00</td></tr>
-            <tr><td>15/01</td><td><span class="badge badge-green">Receita</span></td><td>Manicure</td><td>Joana</td><td>R$ 25,00</td></tr>
-            <tr><td>15/01</td><td><span class="badge badge-red">Despesa</span></td><td>Produtos</td><td>—</td><td>R$ 280,00</td></tr>
-            <tr><td>16/01</td><td><span class="badge badge-green">Receita</span></td><td>Progressiva</td><td>Ana Paula</td><td>R$ 180,00</td></tr>
-            <tr><td>16/01</td><td><span class="badge badge-red">Despesa</span></td><td>Aluguel</td><td>—</td><td>R$ 800,00</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:12px;display:flex;gap:10px;">
-          <div style="flex:1;background:#E4F4EC;border-radius:8px;padding:10px;text-align:center;font-size:.75rem;font-weight:700;color:#1A6B40;">Total Receitas<br><span style="font-size:1.1rem">R$ 8.420</span></div>
-          <div style="flex:1;background:#FDECEA;border-radius:8px;padding:10px;text-align:center;font-size:.75rem;font-weight:700;color:#B03020;">Total Despesas<br><span style="font-size:1.1rem">R$ 3.180</span></div>
-          <div style="flex:1;background:#F5E6EC;border-radius:8px;padding:10px;text-align:center;font-size:.75rem;font-weight:700;color:#9C2D5A;">Lucro Líquido<br><span style="font-size:1.1rem">R$ 5.240</span></div>
-        </div>
-      </div>
-      <div class="tab-info reveal">
-        <h3>Lançamentos do Mês</h3>
-        <p>O coração da planilha. Anote cada atendimento e cada gasto com poucos cliques — menus suspensos agilizam tudo.</p>
-        <ul class="tab-features">
-          <li>150 linhas de lançamento por mês</li>
-          <li>Menu suspenso para Serviço, Profissional e Pagamento</li>
-          <li>Cor automática: verde = receita, vermelho = despesa</li>
-          <li>Mês e categoria preenchidos automaticamente</li>
-          <li>Totais calculados no rodapé sem nenhuma fórmula manual</li>
-        </ul>
-      </div>
+    <div class="fg"><label>Status</label>
+      <select id="eq-status"><option value="livre">Livre</option><option value="ocup">Ocupada</option><option value="limp">Limpeza</option><option value="reserv">Reservada</option></select>
+    </div>
+    <div class="modal-btns">
+      <button id="btn-modal-cancelar" class="btn btn-sec">Cancelar</button>
+      <button id="btn-modal-salvar" class="btn"><i class="ti ti-device-floppy"></i> Salvar</button>
     </div>
   </div>
+</div>
 
-  <div id="tab-comissoes" class="tab-content">
-    <div class="tab-panel">
-      <div class="tab-visual reveal">
-        <div class="tab-vis-header">💄 Controle de Comissões</div>
-        <table class="mini-table">
-          <thead><tr><th>Profissional</th><th>% Comissão</th><th>Gerou</th><th>A Receber</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Ana Paula</td><td>40%</td><td>R$ 3.200</td><td><strong style="color:#9C2D5A">R$ 1.280</strong></td><td><span class="badge badge-red">A Pagar</span></td></tr>
-            <tr><td>Joana Silva</td><td>45%</td><td>R$ 1.800</td><td><strong style="color:#9C2D5A">R$ 810</strong></td><td><span class="badge badge-green">Pago</span></td></tr>
-            <tr><td>Maria Santos</td><td>40%</td><td>R$ 2.100</td><td><strong style="color:#9C2D5A">R$ 840</strong></td><td><span class="badge badge-red">A Pagar</span></td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:12px;background:#F5E6EC;border-radius:8px;padding:12px 14px;">
-          <div style="font-size:.7rem;font-weight:700;color:#9C2D5A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Total a Pagar em Comissões</div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#9C2D5A">R$ 2.930,00</div>
-        </div>
-      </div>
-      <div class="tab-info reveal">
-        <h3>Controle de Comissões</h3>
-        <p>O diferencial da Gestão Salão Pro. Funciona pela Lei do Salão Parceiro: cada profissional tem seu percentual cadastrado e o valor é calculado sozinho no fim do mês.</p>
-        <ul class="tab-features">
-          <li>Até 8 profissionais parceiras cadastradas</li>
-          <li>Percentual individual por profissional</li>
-          <li>Total gerado e valor a pagar calculados automaticamente</li>
-          <li>Campo para marcar como Pago/A Pagar</li>
-          <li>Status com cor automática para não esquecer ninguém</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div id="tab-estoque" class="tab-content">
-    <div class="tab-panel">
-      <div class="tab-visual reveal">
-        <div class="tab-vis-header">📦 Controle de Estoque</div>
-        <table class="mini-table">
-          <thead><tr><th>Produto</th><th>Qtd.</th><th>Mín.</th><th>Custo</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Tinta capilar</td><td>10</td><td>5</td><td>R$ 35</td><td><span class="badge badge-green">✅ OK</span></td></tr>
-            <tr><td>Shampoo prof.</td><td>2</td><td>3</td><td>R$ 28</td><td><span class="badge" style="background:#FFF3CD;color:#856404">⚠️ REPOR</span></td></tr>
-            <tr><td>Água ox. 20vol</td><td>0</td><td>4</td><td>R$ 8</td><td><span class="badge badge-red">❌ SEM</span></td></tr>
-            <tr><td>Esmalte</td><td>30</td><td>10</td><td>R$ 4,50</td><td><span class="badge badge-green">✅ OK</span></td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:12px;background:#F4F4F4;border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:.75rem;color:#6B6B6B;font-weight:600">Valor total em estoque</span>
-          <span style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#2C2C2C">R$ 1.847,00</span>
-        </div>
-      </div>
-      <div class="tab-info reveal">
-        <h3>Controle de Estoque</h3>
-        <p>Nunca mais fique sem produto no meio de um atendimento. O sistema alerta automaticamente quando chegou na hora de repor.</p>
-        <ul class="tab-features">
-          <li>18 produtos cadastráveis com quantidade mínima</li>
-          <li>Status automático: ✅ OK / ⚠️ REPOR / ❌ SEM ESTOQUE</li>
-          <li>Valor total do estoque calculado automaticamente</li>
-          <li>Campo de fornecedor para facilitar pedidos</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div id="tab-relatorio" class="tab-content">
-    <div class="tab-panel">
-      <div class="tab-visual reveal">
-        <div class="tab-vis-header">📊 Relatório Mensal</div>
-        <div style="font-size:.68rem;font-weight:700;color:#6B6B6B;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Receita por Serviço</div>
-        <table class="mini-table" style="margin-bottom:12px">
-          <thead><tr><th>Serviço</th><th>Total</th><th>% Total</th></tr></thead>
-          <tbody>
-            <tr><td>Tintura</td><td>R$ 2.640</td><td>31.4%</td></tr>
-            <tr><td>Progressiva</td><td>R$ 1.980</td><td>23.5%</td></tr>
-            <tr><td>Escova</td><td>R$ 1.450</td><td>17.2%</td></tr>
-            <tr><td>Manicure</td><td>R$ 875</td><td>10.4%</td></tr>
-          </tbody>
-        </table>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div style="background:#F5E6EC;border-radius:8px;padding:10px;text-align:center;">
-            <div style="font-size:.62rem;color:#9C2D5A;font-weight:700;text-transform:uppercase">Ticket Médio</div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#9C2D5A">R$ 59,30</div>
-          </div>
-          <div style="background:#E4F4EC;border-radius:8px;padding:10px;text-align:center;">
-            <div style="font-size:.62rem;color:#1A6B40;font-weight:700;text-transform:uppercase">Margem</div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#1A6B40">62.2%</div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-info reveal">
-        <h3>Relatório Mensal</h3>
-        <p>O resumo executivo que todo dono de salão merece ter. Mostre pro seu contador, analise o que está funcionando e tome decisões com dados reais.</p>
-        <ul class="tab-features">
-          <li>Receita detalhada por cada tipo de serviço</li>
-          <li>Despesas separadas por categoria</li>
-          <li>Ticket médio e margem de lucro calculados</li>
-          <li>Total de comissões e valor de estoque integrados</li>
-          <li>Indicador visual de saúde financeira do mês</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="testimonials-header">
-    <div class="section-label reveal" style="justify-content:center">Quem já usa</div>
-    <h2 class="section-title reveal" style="text-align:center">Salões que <em>transformaram</em><br>seu controle financeiro</h2>
-  </div>
-
-  <div class="testimonials-grid">
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Eu anotava tudo num caderno e no fim do mês não sabia se tinha lucrado ou não. Com a planilha vi que estava pagando comissão errada há meses. Só isso já pagou o investimento várias vezes."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">CM</div>
-        <div>
-          <div class="testi-name">Cláudia M.</div>
-          <div class="testi-role">Dona de salão · Minas Gerais</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Tenho 3 profissionais aqui e calculava comissão no papel, sempre dava confusão. Agora coloco os dados e a planilha já traz o valor certinho de cada uma. Simples demais, não tem erro."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">FC</div>
-        <div>
-          <div class="testi-name">Fernanda C.</div>
-          <div class="testi-role">Cabeleireira MEI · São Paulo</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Não entendo nada de Excel mas consegui usar fácil. O que mais gostei foi o controle de estoque — parei de comprar produto repetido. Já valeu na primeira semana."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">MO</div>
-        <div>
-          <div class="testi-name">Mariana O.</div>
-          <div class="testi-role">Manicure · Belo Horizonte</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="pricing-header">
-    <div class="section-label reveal" style="justify-content:center">Investimento</div>
-    <h2 class="section-title reveal" style="text-align:center">Um valor único.<br><em>Acesso para sempre.</em></h2>
-  </div>
-
-  <div class="pricing-card reveal">
-    <div class="pricing-badge">Oferta de lançamento</div>
-    <div class="pricing-old">De R$ 79,90</div>
-    <div class="pricing-main"><sup>R$</sup>47,00</div>
-    <div class="pricing-pix">Pagamento único — sem mensalidade</div>
-
-    <ul class="pricing-includes">
-      <li><span>🏠</span> Painel Principal com 4 KPIs automáticos</li>
-      <li><span>📋</span> Lançamentos com 150 linhas e menus inteligentes</li>
-      <li><span>💄</span> Controle de comissões por profissional</li>
-      <li><span>📦</span> Controle de estoque com alertas automáticos</li>
-      <li><span>📊</span> Relatório mensal executivo completo</li>
-      <li><span>⚙️</span> Configurações personalizáveis do seu salão</li>
-      <li>Entrega imediata — arquivo .xlsx pronto para usar</li>
-      <li><span>♾️</span> Acesso vitalício — use para sempre</li>
-    </ul>
-
-    <a href="https://pay.kiwify.com.br/xKVK3xM" target="_blank" class="pricing-cta">Comprar agora — R$ 47,00</a>
-    <a href="https://wa.me/5535992715439?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Planilha%20Gest%C3%A3o%20Sal%C3%A3o%20Pro%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas." target="_blank" class="wa-btn">Tirar dúvidas no WhatsApp antes de comprar</a>
-
-    <div class="pricing-trust">
-      <span>Compra segura</span>
-      <span>Entrega por e-mail</span>
-      <span>Arquivo Excel (.xlsx)</span>
-      <span>Funciona no PC e Mac</span>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="faq-header">
-    <div class="section-label reveal" style="justify-content:center">Dúvidas</div>
-    <h2 class="section-title reveal" style="text-align:center">Perguntas <em>frequentes</em></h2>
-  </div>
-
-  <div class="faq-item reveal">
-    <div class="faq-q" onclick="toggleFaq(this)">Precisa de algum programa especial para usar?</div>
-    <div class="faq-a">Não. A planilha funciona no Microsoft Excel (versão 2016 em diante) que a maioria dos computadores já tem instalado. Também funciona no LibreOffice, que é gratuito. Não precisa de app, assinatura ou internet para usar.</div>
-  </div>
-
-  <div class="faq-item reveal">
-    <div class="faq-q" onclick="toggleFaq(this)">Como recebo o arquivo após a compra?</div>
-    <div class="faq-a">Imediatamente após o pagamento você recebe o arquivo .xlsx no e-mail cadastrado. O processo é 100% automático — não precisa esperar nenhuma aprovação manual.</div>
-  </div>
-
-  <div class="faq-item reveal">
-    <div class="faq-q" onclick="toggleFaq(this)">Sou iniciante em Excel. Vou conseguir usar?</div>
-    <div class="faq-a">Sim! A planilha foi desenvolvida especialmente para quem não é especialista em Excel. Todas as fórmulas já estão prontas — você só preenche os campos brancos. Há um guia passo a passo dentro da própria planilha explicando cada módulo.</div>
-  </div>
-
-  <div class="faq-item reveal">
-    <div class="faq-q" onclick="toggleFaq(this)">Posso usar para mais de um salão?</div>
-    <div class="faq-a">A licença é pessoal e vale para um salão. Se quiser usar em mais de um negócio, basta adquirir uma cópia adicional por salão.</div>
-  </div>
-
-  <div class="faq-item reveal">
-    <div class="faq-q" onclick="toggleFaq(this)">E se eu tiver dúvidas sobre como usar?</div>
-    <div class="faq-a">Você terá acesso ao suporte por e-mail para tirar dúvidas sobre o uso da planilha. Respondemos em até 24 horas úteis.</div>
-  </div>
-
-  <div class="faq-item reveal">
-    <div class="faq-q" onclick="toggleFaq(this)">A planilha recebe atualizações?</div>
-    <div class="faq-a">Sim. Quando houver melhorias na planilha, você recebe a versão atualizada gratuitamente pelo mesmo e-mail, sem custo adicional.</div>
-  </div>
-</section>
-
-<!-- FOOTER CTA -->
-<section class="footer-cta">
-  <h2>Seu salão merece<br>um controle de verdade.</h2>
-  <p>Pare de trabalhar no escuro. Saiba exatamente quanto seu salão lucra todo mês.</p>
-  <a href="https://pay.kiwify.com.br/xKVK3xM" target="_blank">Quero a planilha agora — R$ 47,00</a>
-</section>
-
-<footer>
-  <div class="logo"><strong>Gestão Salão Pro</strong> — Escola de Dados</div>
-  <p>© 2025 Escola de Dados · Todos os direitos reservados</p>
-</footer>
+<div class="toast" id="toast"></div>
 
 <script>
-// Tab system
-function showTab(id) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
+(function(){
+var _0x1a=['pff__ac','pff__ts','pff__vt','pff__mo','_lic_ov','_lic_err','_lic_inp','_lic_warn'];
+var _0x2b=function(_a){var _b=0x811c9dc5;for(var _c=0;_c<_a.length;_c++){_b^=_a.charCodeAt(_c);_b=(_b>>>0)*0x01000193>>>0;}return(_b>>>0).toString(16).padStart(8,'0');};
+var _0x3c=function(){var _d=new Date();return String(_d.getFullYear())+String(_d.getMonth()+1).padStart(2,'0');};
+var _0x4d=function(){return['7f3k','!Qz@','PFF#','2024',String.fromCharCode(36)+'xW'].join('');};
+var _0x5e=function(){return['VIT@','LIC1','4-PF','F-fn','t-fl','r-20','24'].join('');};
+var _0x6f=function(_e){return _0x2b(_0x4d()+_e).toUpperCase();};
+var _0x7g=function(){return'VFF-'+_0x2b(_0x5e()).toUpperCase()+'-FOREVER';};
+var _0x8h=function(){
+  var _f=localStorage.getItem(_0x1a[2]);
+  if(_f&&_f===_0x7g()){_0xAk();return;}
+  var _now=Date.now();
+  var _j=parseInt(localStorage.getItem(_0x1a[1])||'0');
+  if(_j>0&&_now<_j-(2*60*60*1000)){_0xCm();return;}
+  var _g=localStorage.getItem(_0x1a[3]);
+  var _h2=localStorage.getItem(_0x1a[0]);
+  var _i=_0x3c();
+  if(_h2==='1'&&_g===_i){localStorage.setItem(_0x1a[1],_now.toString());_0xAk();_0xBl();return;}
+  if(_h2==='1'&&(_now-_j)<(3*24*60*60*1000)){_0xAk();return;}
+  _0xCm();
+};
+var _0xAk=function(){var _el=document.getElementById(_0x1a[4]);if(_el){_el.classList.remove('lic-show');_el.classList.add('lic-hide');}window.__pffOk=true;};
+var _0xCm=function(){window.__pffOk=false;var _el=document.getElementById(_0x1a[4]);if(_el){_el.classList.remove('lic-hide');_el.classList.add('lic-show');}};
+var _0xBl=function(){if(new Date().getDate()>=25){var _el=document.getElementById(_0x1a[7]);if(_el){_el.classList.remove('lic-hide');_el.classList.add('lic-show');}}};
+window._pffAtiva=function(_in){
+  var _v=(_in||'').trim().toUpperCase();
+  var _ym=_0x3c();
+  var _exp=_0x6f(_ym);
+  if(_v===_exp){localStorage.setItem(_0x1a[0],'1');localStorage.setItem(_0x1a[3],_ym);localStorage.setItem(_0x1a[1],Date.now().toString());document.getElementById(_0x1a[5]).textContent='';_0xAk();_0xBl();return;}
+  if(_v===_0x7g()){localStorage.setItem(_0x1a[2],_v);document.getElementById(_0x1a[5]).textContent='';_0xAk();return;}
+  document.getElementById(_0x1a[5]).textContent='Senha incorreta. Verifique com o suporte.';
+  document.getElementById(_0x1a[6]).value='';
+};
+window._pffGetToken=function(_ym){return _0x6f(_ym||_0x3c());};
+window._pffGetVit=function(){return _0x7g();};
+_0x8h();
+})();
+
+// ══ FIREBASE CONFIG ══
+const firebaseConfig = {
+  apiKey: "AIzaSyAI1fZHK5iMT39PWw_O1iakApvNuWyW4xs",
+  authDomain: "pousada-das-flores.firebaseapp.com",
+  databaseURL: "https://pousada-das-flores-default-rtdb.firebaseio.com",
+  projectId: "pousada-das-flores",
+  storageBucket: "pousada-das-flores.firebasestorage.app",
+  messagingSenderId: "278693788816",
+  appId: "1:278693788816:web:ca2f81b719840a18642c15"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// ══ DADOS ══
+const QUARTOS_INIT=[
+  {id:1,nome:'Suíte 1',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:2,nome:'Suíte 2',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:3,nome:'Suíte 3',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:4,nome:'Suíte 4',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:5,nome:'Suíte 5',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:6,nome:'Suíte 6',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:7,nome:'Suíte 7',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:8,nome:'Suíte 8',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+  {id:9,nome:'Suíte 9',tipo:'Suíte com Varanda',preco:250,cap:2,status:'livre',hospede:''},
+];
+let quartos=JSON.parse(JSON.stringify(QUARTOS_INIT));
+let reservas=[];
+let qSel=null,telaAtual='painel';
+let _fbPronto=false;
+
+// ── Salva no Firebase + localStorage (fallback offline) ──
+function salvar(){
+  localStorage.setItem('pff_q',JSON.stringify(quartos));
+  localStorage.setItem('pff_r',JSON.stringify(reservas));
+  if(_fbPronto && typeof firebase!=='undefined'){
+    db.ref('dados').set({quartos:quartos,reservas:reservas,ts:Date.now()})
+      .catch(function(){console.warn('Firebase offline, salvo localmente.');});
+  }
 }
 
-// FAQ accordion
-function toggleFaq(el) {
-  const item = el.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+// ── Carrega do Firebase; se offline usa localStorage ──
+function iniciarDados(){
+  document.getElementById('tb-sub').textContent='Sincronizando...';
+  // Verifica se Firebase carregou (pode não ter no primeiro acesso offline)
+  if(typeof firebase==='undefined'||!firebase.database){
+    console.warn('Firebase SDK não disponível, usando dados locais.');
+    var lq=localStorage.getItem('pff_q');
+    var lr=localStorage.getItem('pff_r');
+    if(lq)quartos=JSON.parse(lq); else quartos=JSON.parse(JSON.stringify(QUARTOS_INIT));
+    if(lr)reservas=JSON.parse(lr);
+    _fbPronto=false;
+    renderPainel();
+    return;
+  }
+  db.ref('dados').once('value')
+    .then(function(snap){
+      var d=snap.val();
+      if(d&&d.quartos)quartos=d.quartos;
+      if(d&&d.reservas)reservas=d.reservas;
+      // Salva localmente como cache offline
+      localStorage.setItem('pff_q',JSON.stringify(quartos));
+      localStorage.setItem('pff_r',JSON.stringify(reservas));
+      _fbPronto=true;
+      renderPainel();
+      // Escuta mudanças em tempo real (outro dispositivo salvou)
+      db.ref('dados').on('value',function(snap2){
+        var d2=snap2.val();
+        if(d2&&d2.quartos)quartos=d2.quartos;
+        if(d2&&d2.reservas)reservas=d2.reservas;
+        localStorage.setItem('pff_q',JSON.stringify(quartos));
+        localStorage.setItem('pff_r',JSON.stringify(reservas));
+        // Atualiza a tela atual silenciosamente
+        if(telaAtual==='painel')renderPainel();
+        else if(telaAtual==='mapa')renderMapa();
+        else if(telaAtual==='reservas')renderReservas();
+        else if(telaAtual==='hospedes')renderHospedes();
+      });
+    })
+    .catch(function(){
+      // Sem internet — usa cache local
+      console.warn('Firebase indisponível, usando dados locais.');
+      var lq=localStorage.getItem('pff_q');
+      var lr=localStorage.getItem('pff_r');
+      if(lq)quartos=JSON.parse(lq);
+      if(lr)reservas=JSON.parse(lr);
+      _fbPronto=false;
+      renderPainel();
+    });
 }
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+// ══ UTILITÁRIOS ══
+function toast(msg,dur=2600){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),dur);}
+function chipStatus(s){const m={livre:'<span class="chip chip-livre">Livre</span>',ocup:'<span class="chip chip-ocup">Ocupada</span>',limp:'<span class="chip chip-limp">Limpeza</span>',reserv:'<span class="chip chip-reserv">Reservada</span>'};return m[s]||s;}
+function initials(n){return(n||'').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase();}
+function fmtDate(d){if(!d)return'—';const[y,m,dd]=d.split('-');return dd+'/'+m+'/'+y;}
+function fmtMoney(v){return'R$ '+Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+// ══ NAVEGAÇÃO ══
+function go(id){
+  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
+  document.getElementById('scr-'+id).classList.add('on');
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('on'));
+  const ni=document.querySelector('[data-scr="'+id+'"]');if(ni)ni.classList.add('on');
+  const titles={painel:'Painel Geral',mapa:'Suítes',nova:'Nova Reserva',reservas:'Reservas',hospedes:'Hóspedes',financeiro:'Financeiro',config:'Configurações'};
+  document.getElementById('tb-title').textContent=titles[id]||id;
+  const hoje=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+  document.getElementById('tb-sub').textContent=hoje;
+  telaAtual=id;
+  if(id==='painel')renderPainel();
+  else if(id==='mapa')renderMapa();
+  else if(id==='nova')renderFormNova();
+  else if(id==='reservas')renderReservas();
+  else if(id==='hospedes')renderHospedes();
+  else if(id==='financeiro')renderFinanceiro();
+  else if(id==='config')renderConfig();
+}
+
+// ══ EVENT LISTENERS — todos em JS puro, sem onclick inline ══
+document.getElementById('nav').addEventListener('click',function(e){
+  var ni=e.target.closest('.ni');if(ni&&ni.dataset.scr)go(ni.dataset.scr);
+});
+document.getElementById('fin-nav-link').addEventListener('click',function(){go('financeiro');});
+document.getElementById('_lic_warn_close').addEventListener('click',function(){
+  document.getElementById('_lic_warn').classList.remove('lic-show');
+  document.getElementById('_lic_warn').classList.add('lic-hide');
+});
+document.getElementById('_lic_btn').addEventListener('click',function(){
+  _pffAtiva(document.getElementById('_lic_inp').value);
+});
+document.getElementById('_lic_inp').addEventListener('keydown',function(e){
+  if(e.key==='Enter')_pffAtiva(this.value);
+});
+document.getElementById('btn-nova').addEventListener('click',function(){go('nova');});
+document.getElementById('btn-salvar-reserva').addEventListener('click',salvarReserva);
+document.getElementById('btn-cancelar-reserva').addEventListener('click',function(){go('reservas');});
+document.getElementById('btn-entrar-fin').addEventListener('click',verificarPinFin);
+document.getElementById('btn-voltar-fin').addEventListener('click',function(){go('painel');});
+document.getElementById('btn-fechar-fin').addEventListener('click',fecharFinanceiro);
+document.getElementById('btn-exportar').addEventListener('click',exportarBackup);
+document.getElementById('input-importar').addEventListener('change',function(){importarBackup(this);});
+document.getElementById('btn-trocar-senha').addEventListener('click',trocarSenhaFin);
+document.getElementById('btn-modal-cancelar').addEventListener('click',fecharModalQuarto);
+document.getElementById('btn-modal-salvar').addEventListener('click',salvarEdicaoQuarto);
+document.getElementById('f-in').addEventListener('change',calcValor);
+document.getElementById('f-out').addEventListener('change',calcValor);
+document.getElementById('f-valor').addEventListener('input',calcSinal);
+document.getElementById('srch-res').addEventListener('input',renderReservas);
+document.getElementById('srch-hosp').addEventListener('input',renderHospedes);
+
+// Delegação permanente — painel lista (botão criar primeira reserva)
+document.getElementById('painel-lista').addEventListener('click',function(e){
+  var btn=e.target.closest('[data-go]');
+  if(btn)go(btn.dataset.go);
+});
+document.getElementById('mapa-grid').addEventListener('click',function(e){
+  var card=e.target.closest('[data-qid]');
+  if(card)mudaStatus(parseInt(card.dataset.qid));
+});
+
+// Delegação permanente — seleção de suíte na nova reserva
+document.getElementById('quartos-sel').addEventListener('click',function(e){
+  var opt=e.target.closest('.qs-opt:not(.ocupado)');
+  if(opt){
+    document.querySelectorAll('.qs-opt').forEach(function(el){el.classList.remove('sel');});
+    opt.classList.add('sel');
+    qSel=parseInt(opt.dataset.qid);
+    calcValor();
+  }
+});
+
+// Delegação permanente — botões nas reservas
+document.getElementById('lista-reservas').addEventListener('click',function(e){
+  var s=e.target.closest('[data-sinal]');
+  var d=e.target.closest('[data-del]');
+  if(s)marcarSinal(parseInt(s.dataset.sinal));
+  if(d)excluirReserva(parseInt(d.dataset.del));
+});
+
+// Delegação permanente — configurações de suítes
+document.getElementById('conf-quartos').addEventListener('change',function(e){
+  var sel=e.target.closest('[data-stq]');
+  if(sel)mudaStatusConf(parseInt(sel.dataset.stq),sel.value);
+});
+document.getElementById('conf-quartos').addEventListener('click',function(e){
+  var btn=e.target.closest('[data-editq]');
+  if(btn)abrirModalQuarto(parseInt(btn.dataset.editq));
+});
+
+// PIN navegação entre dígitos
+var pinDigits=[...document.querySelectorAll('.pin-d')];
+pinDigits.forEach(function(inp,i){
+  inp.addEventListener('input',function(){
+    var v=inp.value.replace(/\D/g,'');
+    inp.value=v.slice(-1);
+    if(inp.value&&i<pinDigits.length-1)pinDigits[i+1].focus();
+    if(i===pinDigits.length-1&&inp.value)verificarPinFin();
   });
-}, { threshold: 0.12 });
+  inp.addEventListener('keydown',function(e){
+    if(e.key==='Backspace'&&!inp.value&&i>0)pinDigits[i-1].focus();
+    if(e.key==='Enter')verificarPinFin();
+  });
+});
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// ══ PAINEL ══
+function renderPainel(){
+  document.getElementById('m-livres').textContent=quartos.filter(q=>q.status==='livre').length;
+  document.getElementById('m-ocup').textContent=quartos.filter(q=>q.status==='ocup').length;
+  document.getElementById('m-limp').textContent=quartos.filter(q=>q.status==='limp').length;
+  document.getElementById('m-res').textContent=reservas.length;
+  const el=document.getElementById('painel-lista');
+  if(!reservas.length){
+    el.innerHTML='<div class="card"><div class="card-body" style="color:var(--muted);font-size:13px;text-align:center;padding:24px">Nenhuma reserva ainda.<br><br><button class="btn btn-sm" data-go="nova" style="margin-top:4px"><i class="ti ti-plus"></i> Criar primeira reserva</button></div></div>';
+    return;
+  }
+  var sorted=[...reservas].sort((a,b)=>a.checkin.localeCompare(b.checkin));
+  el.innerHTML=sorted.map(function(r){
+    var q=quartos.find(q=>q.id===r.quarto);
+    var sc=r.sinal==='sim'?'<span class="chip chip-pago">Sinal pago</span>':'<span class="chip chip-pend">Sinal pendente</span>';
+    var sw=r.sinal==='nao'?'<div class="sinal-pend-warn"><i class="ti ti-coin"></i> Sinal a receber: '+fmtMoney(r.valor/2)+'</div>':'';
+    return'<div class="res-item" style="margin-bottom:8px"><div class="res-head"><div class="res-av">'+initials(r.nome)+'</div><div style="flex:1"><div class="res-nome">'+r.nome+'</div><div class="res-det">'+(q?q.nome+' · ':'')+r.qtd+'</div></div>'+sc+'</div><div class="res-body"><span class="rbl"><i class="ti ti-calendar-event"></i> '+fmtDate(r.checkin)+' → '+fmtDate(r.checkout)+'</span><span class="rbl"><i class="ti ti-device-mobile"></i> '+r.tel+'</span></div>'+(sw?'<div style="padding:0 14px 10px">'+sw+'</div>':'')+'</div>';
+  }).join('');
+}
+
+// ══ MAPA ══
+function renderMapa(){
+  document.getElementById('mapa-grid').innerHTML=quartos.map(function(q){
+    return'<div class="qcard '+q.status+'" data-qid="'+q.id+'"><div class="q-badge">'+chipStatus(q.status)+'</div><div class="q-num">SUÍTE '+q.id+'</div><div class="q-nome">'+q.nome+'</div><div class="q-tipo">'+fmtMoney(q.preco)+'/noite</div>'+(q.hospede?'<div class="q-hospede"><i class="ti ti-user"></i> '+q.hospede+'</div>':'')+'<div class="q-hint">Toque para avançar status</div></div>';
+  }).join('');
+}
+function mudaStatus(id){
+  var q=quartos.find(q=>q.id===id);if(!q)return;
+  var prox={livre:'ocup',ocup:'limp',limp:'livre',reserv:'livre'};
+  var labels={livre:'Livre ✓',ocup:'Ocupada',limp:'Em limpeza',reserv:'Livre ✓'};
+  if(q.status==='ocup'||q.status==='limp')q.hospede='';
+  q.status=prox[q.status];salvar();
+  toast(q.nome+' → '+labels[q.status]);renderMapa();
+  if(telaAtual==='painel')renderPainel();
+}
+
+// ══ NOVA RESERVA ══
+function renderFormNova(){
+  qSel=null;
+  var hoje=new Date().toISOString().slice(0,10);
+  var amanha=new Date(Date.now()+86400000*2).toISOString().slice(0,10);
+  ['f-nome','f-tel','f-cpf','f-obs'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('f-in').value=hoje;
+  document.getElementById('f-out').value=amanha;
+  document.getElementById('f-valor').value='';
+  document.getElementById('f-sinal-val').value='';
+  document.getElementById('f-sinal').value='nao';
+  document.getElementById('f-qtd').selectedIndex=1;
+  document.getElementById('quartos-sel').innerHTML=quartos.map(function(q){
+    var dis=q.status==='ocup'||q.status==='reserv';
+    return'<div class="qs-opt'+(dis?' ocupado':'')+'" data-qid="'+q.id+'"><div class="qs-num">'+q.id+'</div><div class="qs-tipo">'+q.tipo+'</div><div class="qs-preco">'+fmtMoney(q.preco)+'/noite</div>'+(dis?'<div class="qs-indis">Indisponível</div>':'')+'</div>';
+  }).join('');
+}
+function calcValor(){
+  if(!qSel)return;
+  var q=quartos.find(q=>q.id===qSel);if(!q)return;
+  var d1=new Date(document.getElementById('f-in').value);
+  var d2=new Date(document.getElementById('f-out').value);
+  var noites=Math.max(1,Math.round((d2-d1)/86400000));
+  document.getElementById('f-valor').value=(q.preco*noites).toFixed(2);
+  calcSinal();
+}
+function calcSinal(){
+  var v=parseFloat(document.getElementById('f-valor').value)||0;
+  document.getElementById('f-sinal-val').value=v>0?fmtMoney(v/2):'';
+}
+function salvarReserva(){
+  var nome=document.getElementById('f-nome').value.trim();
+  var tel=document.getElementById('f-tel').value.trim();
+  var cin=document.getElementById('f-in').value;
+  var cout=document.getElementById('f-out').value;
+  var valor=parseFloat(document.getElementById('f-valor').value)||0;
+  if(!nome||!tel||!cin||!cout||!qSel||valor<=0){toast('⚠️ Preencha todos os campos obrigatórios!');return;}
+  if(cout<=cin){toast('⚠️ Check-out deve ser após o check-in!');return;}
+  var r={id:Date.now(),nome:nome,tel:tel,cpf:document.getElementById('f-cpf').value,qtd:document.getElementById('f-qtd').value,checkin:cin,checkout:cout,quarto:qSel,valor:valor,sinal:document.getElementById('f-sinal').value,pag:document.getElementById('f-pag').value,obs:document.getElementById('f-obs').value,ts:Date.now()};
+  reservas.push(r);
+  var q=quartos.find(q=>q.id===qSel);if(q){q.status='reserv';q.hospede=nome;}
+  salvar();toast('✅ Reserva de '+nome+' salva!');go('reservas');
+}
+
+// ══ RESERVAS ══
+function renderReservas(){
+  var q=(document.getElementById('srch-res').value||'').toLowerCase();
+  var el=document.getElementById('lista-reservas');
+  var lista=reservas.filter(function(r){return r.nome.toLowerCase().includes(q);});
+  if(!lista.length){el.innerHTML='<div class="card"><div class="card-body" style="color:var(--muted);text-align:center;padding:20px">Nenhuma reserva encontrada.</div></div>';return;}
+  lista=[...lista].sort((a,b)=>a.checkin.localeCompare(b.checkin));
+  el.innerHTML=lista.map(function(r){
+    var qt=quartos.find(q=>q.id===r.quarto);
+    var sc=r.sinal==='sim'?'<span class="chip chip-pago">Sinal pago</span>':'<span class="chip chip-pend">Sinal pendente</span>';
+    var btnSinal=r.sinal==='nao'?'<button class="btn btn-sec btn-sm" data-sinal="'+r.id+'"><i class="ti ti-coin"></i> Recebi</button>':'';
+    return'<div class="res-item"><div class="res-head"><div class="res-av">'+initials(r.nome)+'</div><div style="flex:1"><div class="res-nome">'+r.nome+'</div><div class="res-det">'+(qt?qt.nome:'')+' · '+r.qtd+'</div></div><div class="res-actions">'+sc+btnSinal+'<button class="btn btn-danger btn-sm" data-del="'+r.id+'"><i class="ti ti-trash"></i></button></div></div><div class="res-body"><span class="rbl"><i class="ti ti-calendar-event"></i> '+fmtDate(r.checkin)+' → '+fmtDate(r.checkout)+'</span><span class="rbl"><i class="ti ti-cash"></i> '+fmtMoney(r.valor)+' · Sinal: '+fmtMoney(r.valor/2)+'</span></div>'+(r.obs?'<div class="res-obs"><i class="ti ti-notes"></i> '+r.obs+'</div>':'')+'</div>';
+  }).join('');
+}
+function marcarSinal(id){var r=reservas.find(r=>r.id===id);if(r){r.sinal='sim';salvar();toast('✅ Sinal recebido!');renderReservas();}}
+function excluirReserva(id){
+  if(!confirm('Excluir esta reserva?'))return;
+  var r=reservas.find(r=>r.id===id);
+  if(r){var q=quartos.find(q=>q.id===r.quarto);if(q&&(q.status==='reserv'||q.status==='ocup')){q.status='limp';q.hospede='';}}
+  reservas=reservas.filter(r=>r.id!==id);salvar();toast('Reserva excluída.');renderReservas();
+}
+
+// ══ HÓSPEDES ══
+function renderHospedes(){
+  var q=(document.getElementById('srch-hosp').value||'').toLowerCase();
+  var el=document.getElementById('lista-hospedes');
+  var uniq={};
+  reservas.forEach(function(r){var k=r.nome.toLowerCase();if(!uniq[k])uniq[k]={nome:r.nome,tel:r.tel,count:0,ultimo:''};uniq[k].count++;if(!uniq[k].ultimo||r.checkin>uniq[k].ultimo)uniq[k].ultimo=r.checkin;});
+  var lista=Object.values(uniq).filter(function(h){return h.nome.toLowerCase().includes(q);});
+  if(!lista.length){el.innerHTML='<div style="color:var(--muted);text-align:center;padding:20px">Nenhum hóspede encontrado.</div>';return;}
+  lista.sort((a,b)=>b.ultimo.localeCompare(a.ultimo));
+  el.innerHTML=lista.map(function(h){return'<div class="h-row"><div class="h-av">'+initials(h.nome)+'</div><div style="flex:1"><div class="h-name">'+h.nome+'</div><div class="h-info">'+h.tel+'</div></div><div class="h-stat"><div class="h-count">'+h.count+' estadia'+(h.count>1?'s':'')+'</div><div class="h-last">'+fmtDate(h.ultimo)+'</div></div></div>';}).join('');
+}
+
+// ══ FINANCEIRO ══
+function getSenhaFin(){return localStorage.getItem('pff_pin')||'1234';}
+function renderFinanceiro(){
+  document.getElementById('fin-lock-screen').style.display='block';
+  document.getElementById('fin-content').classList.add('lic-hide');
+  document.getElementById('fin-content').classList.remove('lic-show');
+  pinDigits.forEach(function(d){d.value='';});
+  document.getElementById('fin-pin-err').textContent='';
+}
+function verificarPinFin(){
+  var val=pinDigits.map(function(d){return d.value;}).join('');
+  if(val.length<4){document.getElementById('fin-pin-err').textContent='Digite os 4 dígitos.';return;}
+  if(val===getSenhaFin()){
+    document.getElementById('fin-pin-err').textContent='';
+    pinDigits.forEach(function(d){d.value='';});
+    document.getElementById('fin-lock-screen').style.display='none';
+    document.getElementById('fin-content').classList.remove('lic-hide');
+    document.getElementById('fin-content').classList.add('lic-show');
+    carregarFinanceiro();
+  } else {
+    document.getElementById('fin-pin-err').textContent='Senha incorreta.';
+    pinDigits.forEach(function(d){d.value='';});
+    pinDigits[0].focus();
+  }
+}
+function fecharFinanceiro(){
+  document.getElementById('fin-lock-screen').style.display='block';
+  document.getElementById('fin-content').classList.add('lic-hide');
+  document.getElementById('fin-content').classList.remove('lic-show');
+  go('painel');
+}
+function carregarFinanceiro(){
+  var rec=reservas.reduce(function(s,r){return s+(r.sinal==='sim'?r.valor/2:0);},0);
+  var pend=reservas.reduce(function(s,r){return s+(r.sinal==='nao'?r.valor/2:0);},0);
+  var tot=reservas.reduce(function(s,r){return s+r.valor;},0);
+  document.getElementById('fin-rec').textContent=fmtMoney(rec);
+  document.getElementById('fin-pend').textContent=fmtMoney(pend);
+  document.getElementById('fin-tot').textContent=fmtMoney(tot);
+  var sorted=[...reservas].sort((a,b)=>b.ts-a.ts);
+  document.getElementById('lista-fin').innerHTML=sorted.length?sorted.map(function(r){
+    var sv=r.valor/2;var ok=r.sinal==='sim';
+    return'<div class="lanc"><div class="lanc-ic '+(ok?'e':'s')+'"><i class="ti ti-'+(ok?'arrow-down':'clock')+'"></i></div><div style="flex:1"><div class="lanc-t">'+r.nome+' · Suíte '+r.quarto+'</div><div class="lanc-d">'+fmtDate(r.checkin)+' → '+fmtDate(r.checkout)+' · '+r.pag+'</div></div><div><div class="lanc-v '+(ok?'e':'s')+'">'+(ok?'+ ':'⏳ ')+fmtMoney(sv)+'</div><div style="font-size:10px;color:var(--muted);text-align:right">'+(ok?'sinal recebido':'aguardando')+'</div></div></div>';
+  }).join(''):'<div style="color:var(--muted);text-align:center;padding:20px">Sem registros.</div>';
+}
+function trocarSenhaFin(){
+  var atual=document.getElementById('cfg-pin-atual').value;
+  var nova=document.getElementById('cfg-pin-nova').value;
+  var conf=document.getElementById('cfg-pin-conf').value;
+  var err=document.getElementById('cfg-pin-err');
+  if(atual!==getSenhaFin()){err.textContent='Senha atual incorreta.';return;}
+  if(!/^\d{4}$/.test(nova)){err.textContent='Nova senha deve ter 4 números.';return;}
+  if(nova!==conf){err.textContent='As senhas não coincidem.';return;}
+  localStorage.setItem('pff_pin',nova);
+  err.style.color='var(--verde)';err.textContent='✅ Senha alterada!';
+  document.getElementById('cfg-pin-atual').value='';
+  document.getElementById('cfg-pin-nova').value='';
+  document.getElementById('cfg-pin-conf').value='';
+  setTimeout(function(){err.textContent='';err.style.color='var(--red)';},3000);
+}
+
+// ══ CONFIGURAÇÕES ══
+function renderConfig(){
+  document.getElementById('conf-quartos').innerHTML=quartos.map(function(q){
+    return'<div class="conf-row"><div style="flex:1"><div class="conf-nome">'+q.nome+'</div><div class="conf-tipo">'+q.tipo+' · '+fmtMoney(q.preco)+'/noite · '+q.cap+' pessoa'+(q.cap>1?'s':'')+'</div></div><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><select class="conf-select" data-stq="'+q.id+'"><option value="livre"'+(q.status==='livre'?' selected':'')+'>Livre</option><option value="ocup"'+(q.status==='ocup'?' selected':'')+'>Ocupada</option><option value="limp"'+(q.status==='limp'?' selected':'')+'>Limpeza</option><option value="reserv"'+(q.status==='reserv'?' selected':'')+'>Reservada</option></select><button class="btn btn-sec btn-sm" data-editq="'+q.id+'"><i class="ti ti-pencil"></i> Editar</button></div></div>';
+  }).join('');
+}
+function mudaStatusConf(id,val){
+  var q=quartos.find(q=>q.id===id);if(!q)return;
+  q.status=val;if(val==='livre'||val==='limp')q.hospede='';
+  salvar();toast('Status da '+q.nome+' atualizado.');
+}
+function abrirModalQuarto(id){
+  var q=quartos.find(q=>q.id===id);if(!q)return;
+  document.getElementById('eq-id').value=id;
+  document.getElementById('eq-nome').value=q.nome;
+  document.getElementById('eq-tipo').value=q.tipo;
+  document.getElementById('eq-preco').value=q.preco;
+  document.getElementById('eq-cap').value=q.cap||2;
+  document.getElementById('eq-status').value=q.status;
+  document.getElementById('modal-quarto').classList.remove('hide');
+}
+function fecharModalQuarto(){document.getElementById('modal-quarto').classList.add('hide');}
+function salvarEdicaoQuarto(){
+  var id=parseInt(document.getElementById('eq-id').value);
+  var q=quartos.find(q=>q.id===id);if(!q)return;
+  var nome=document.getElementById('eq-nome').value.trim();
+  var tipo=document.getElementById('eq-tipo').value.trim();
+  var preco=parseFloat(document.getElementById('eq-preco').value)||0;
+  var cap=parseInt(document.getElementById('eq-cap').value)||2;
+  var status=document.getElementById('eq-status').value;
+  if(!nome||!tipo||preco<=0){toast('⚠️ Preencha nome, tipo e valor!');return;}
+  q.nome=nome;q.tipo=tipo;q.preco=preco;q.cap=cap;q.status=status;
+  if(status==='livre'||status==='limp')q.hospede='';
+  salvar();fecharModalQuarto();renderConfig();toast('✅ '+nome+' atualizada!');
+}
+
+// ══ BACKUP ══
+function exportarBackup(){
+  var data={versao:'2.0',pousada:'Fonte das Flores',exportadoEm:new Date().toISOString(),quartos:quartos,reservas:reservas};
+  var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download='backup_pousada_'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  toast('✅ Backup exportado!');
+}
+function importarBackup(input){
+  var file=input.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var data=JSON.parse(e.target.result);
+      if(data.quartos)quartos=data.quartos;
+      if(data.reservas)reservas=data.reservas;
+      salvar();toast('✅ Backup importado!');renderConfig();renderPainel();
+    }catch(ex){toast('⚠️ Arquivo inválido.');}
+  };
+  reader.readAsText(file);input.value='';
+}
+
+iniciarDados();
 </script>
-
-<!-- WhatsApp Float Button -->
-<a href="https://wa.me/5535992715439?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Planilha%20Gest%C3%A3o%20Sal%C3%A3o%20Pro%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas." target="_blank" class="wa-float" title="Tirar dúvidas no WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
-
-<style>
-.wa-float {
-  position: fixed; bottom: 28px; right: 28px; z-index: 999;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: #25D366;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,.4);
-  transition: transform .25s, box-shadow .25s;
-  text-decoration: none;
-}
-.wa-float:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 28px rgba(37,211,102,.5);
-}
-.wa-float-label {
-  position: absolute; right: 68px;
-  background: #111; color: #fff;
-  font-family: "Outfit", sans-serif;
-  font-size: .72rem; font-weight: 600;
-  padding: 6px 12px; border-radius: 4px;
-  white-space: nowrap; letter-spacing: .03em;
-  opacity: 0; pointer-events: none;
-  transition: opacity .2s;
-}
-.wa-float:hover .wa-float-label { opacity: 1; }
-</style>
 </body>
 </html>
